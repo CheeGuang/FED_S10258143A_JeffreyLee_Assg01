@@ -229,9 +229,64 @@ header nav {
   height: 50px;
 }
 
+/* Articles */
+#articles {
+  margin-top: 40px;
+  margin-left: 6%;
+  margin-right: 6%;
+}
+
+#articles article {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  height: 60vh;
+}
+
+#articles img {
+  width: 40vw;
+  border-radius: 35px;
+  margin-left: 50px;
+}
+
+#articles article:nth-child(odd) {
+  flex-direction: row;
+}
+
+#articles article:nth-child(odd) img {
+  margin-left: 0px;
+  margin-right: 50px;
+}
+
+.articles-learn {
+  align-self: flex-end;
+  background-color: #f40027;
+  border: none;
+  padding: 1.2% 2.6%;
+  font-family: "Heebo", sans-serif;
+  font-weight: 700;
+  font-size: 1.3em;
+  color: white;
+  border-radius: 999px;
+  margin-top: 10px;
+}
+
 /* Header Style */
 h1 {
   font-family: "Oswald", sans-serif;
   font-size: 3em;
   margin: 0.3em;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 2em;
+  margin-bottom: 2px;
+}
+
+p {
+  font-size: 1.3em;
+  line-height: 1.2em;
+  margin-top: 6px;
+  margin-bottom: 10px;
 }
