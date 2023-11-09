@@ -204,10 +204,6 @@ header nav {
 }
 
 .startorder-option {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
   padding-top: 1.4%;
   padding-bottom: 1.4%;
   padding-left: 2%;
@@ -218,8 +214,15 @@ header nav {
   font-family: "Heebo", sans-serif;
   font-weight: 700;
   font-size: 2em;
-  color: white;
   border-radius: 15px;
+}
+.startorder-option a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: white;
 }
 
 .startorder-option img {
@@ -315,8 +318,8 @@ footer {
 }
 
 #footer-kfclogo {
-  width: 10vw;
-  margin: 4%;
+  width: 6.5vw;
+  margin: 3%;
 }
 
 #footer-options {
@@ -324,6 +327,7 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  margin: 0.1% 0;
 }
 
 .footer-options-option:first-child {
@@ -332,6 +336,19 @@ footer {
 
 .footer-options-option:last-child {
   margin-right: 10%;
+}
+
+#footer-socials {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 2%;
+  margin: 2% 0;
+}
+
+#footer-socials a,
+.footer-socials-img {
+  width: 2.5vw;
 }
 
 /* Header Style */
@@ -356,21 +373,63 @@ h3 {
 
 h4 {
   font-weight: 700;
-  font-size: 1.8em;
-  margin-bottom: 2px;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
 }
 
 p {
   font-size: 1.3em;
   line-height: 1.2em;
   margin-top: 6px;
-  margin-bottom: 10px;
 }
 
 .footer-options-option ul li a {
   color: black;
   font-weight: 400;
   font-size: 1.2em;
-  margin-bottom: 2px;
+  line-height: 2em;
   text-decoration: none;
+}
+
+/* Dine In */
+#dinein-start {
+  background: rgba(33, 28, 28, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+#box {
+  width: 70%;
+  height: 40%;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  color: #0000cc;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background: #faf5f2;
+}
+#dinein-start:target {
+  display: block;
+}
+.close {
+  display: inline-block;
+  border: 1px solid #0000cc;
+  color: #0000cc;
+  padding: 0 12px;
+  margin: 10px;
+  text-decoration: none;
+  background: #f2f2f2;
+  font-size: 14pt;
+  cursor: pointer;
+}
+.close:hover {
+  background: #e6e6ff;
 }
