@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="default.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,20 +16,7 @@
   </head>
   <body>
     <header>
-      <nav>
-        <img
-          id="nav-kfc"
-          src="assets/images/KFCLogoTypography.png"
-          alt="KFC Logo"
-        />
-        <ul id="nav-options">
-          <li>Home</li>
-          <li>Menu</li>
-          <li>About KFC</li>
-          <li>Policies</li>
-        </ul>
-        <button id="nav-order"><p id="nav-order-text">Order Here</p></button>
-      </nav>
+      <div id="navbar-container"></div>
     </header>
     <section id="advertisements">
       <img
@@ -40,21 +29,29 @@
       <h1>LET'S START ORDERING</h1>
       <div id="startorder-options">
         <button class="startorder-option">
-          <a href="#dinein-start">
+          <a
+            href="#startorder-action1"
+            id="startorder-option-dinein"
+            onClick="action1_insert_name(this.id)"
+          >
             <p>DINE IN</p>
             <img src="assets/images/SpoonFork.png" alt="Dine In Icon" />
           </a>
         </button>
 
         <button class="startorder-option">
-          <a href="#dinein-start">
+          <a
+            href="#startorder-action1"
+            id="startorder-option-takeaway"
+            onClick="action1_insert_name(this.id)"
+          >
             <p>TAKEAWAY</p>
             <img src="assets/images/Shoppingbagfinal.png" alt="Takeaway Icon" />
           </a>
         </button>
 
         <button class="startorder-option">
-          <a href="#dinein-start">
+          <a href="#startorder-action2">
             <p>DELIVERY</p>
             <img src="assets/images/Delivery.png" alt="Delivery Icon" />
           </a>
@@ -132,84 +129,122 @@
         <h3>Contact Us</h3>
       </button>
     </section>
-    <footer>
-      <img id="footer-kfclogo" src="assets/images/KFCLogo.png" alt="KFC Logo" />
-      <div id="footer-options">
-        <span class="footer-options-option"
-          ><h4>Home</h4>
-          <ul>
-            <li><a href="#"> What's New</a></li>
-            <li><a href="#"> Coporate Events & Vouchers</a></li>
-            <li><a href="#"> Promo Code & Rewards</a></li>
-            <li><a href="#"> Order Tracker</a></li>
-            <li><a href="#"> Sign In or Create Account</a></li>
-          </ul></span
-        >
-        <span class="footer-options-option"
-          ><h4>Menu</h4>
-          <ul>
-            <li><a href="#">Menu</a></li>
-            <li><a href="#">Nutrition & Allergy</a></li>
-          </ul></span
-        >
-        <span class="footer-options-option"
-          ><h4>About KFC</h4>
-          <ul>
-            <li><a href="#">Our Story</a></li>
-            <li><a href="#">Food Philosophy</a></li>
-            <li><a href="#">Social Responsibility</a></li>
-            <li><a href="#">Leadership Team</a></li>
-            <li><a href="#">Careers</a></li>
-          </ul></span
-        >
-        <span class="footer-options-option"
-          ><h4>Policies</h4>
-          <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Use</a></li>
-          </ul></span
-        >
+    <footer id="footer"></footer>
+
+    <!-- Display Start Order 1 HTML -->
+    <div id="startorder-action1">
+      <div id="startorder-action1-box">
+        <h2 id="startorder-action1-box-header">Order For %OrderType%</h2>
+        <form action="menu.html">
+          <button
+            id="startorder-action1-box-location"
+            class="startorder-action1-box-options"
+          >
+            <h2>Use My Location</h2>
+          </button>
+          <h2>Or</h2>
+          <div class="startorder-action1-box-options">
+            <input
+              type="text"
+              placeholder="Enter Address To Search For Nearby Restaurants"
+            />
+            <input type="submit" value="Enter" />
+          </div>
+        </form>
+
+        <a href="#" class="close"><h4>Back</h4></a>
       </div>
-      <div id="footer-socials">
-        <a class="footer-socials-a" href=""
-          ><img
-            class="footer-socials-img"
-            src="assets/images/insta.png"
-            alt="Instagram Icon"
-        /></a>
-        <a href=""
-          ><img
-            class="footer-socials-img"
-            src="assets/images/facebook.png"
-            alt="Facebook Icon"
-        /></a>
-        <a href=""
-          ><img
-            class="footer-socials-img"
-            src="assets/images/youtube.png"
-            alt="Youtube Icon"
-        /></a>
-        <a href=""
-          ><img
-            class="footer-socials-img"
-            src="assets/images/tiktok.png"
-            alt="TikTok Icon"
-        /></a>
-        <a href=""
-          ><img
-            class="footer-socials-img"
-            src="assets/images/twitter.png"
-            alt="Twitter Icon"
-        /></a>
-      </div>
-    </footer>
-    <div id="dinein-start">
-      <div id="box">
-        Order For Dine In<br />
-        <a href="#" class="close">Close window</a>
+    </div>
+    <!-- Display Start Order 2 HTML -->
+
+    <div id="startorder-action2">
+      <div id="startorder-action2-box">
+        <h2 id="startorder-action2-box-header">Order For Delivery</h2>
+        <form action="menu.html">
+          <input
+            type="text"
+            placeholder=" Enter Address To Search For Nearby Restaurants"
+            id="startorder-action2-box-address"
+            class="startorder-action2-box-options"
+          />
+          <select
+            name="delivery-day"
+            id="delivery-day"
+            class="startorder-action2-box-options"
+            onClick="action2_insert_day()"
+          >
+            <option value="today">Today</option>
+            <option value="tmr" id="delivery-day-tmr">%Tmr%</option>
+            <option value="dayafttmr" id="delivery-day-dayafttmr">
+              %DayAftTmr%
+            </option>
+          </select>
+          <select
+            name="delivery-time"
+            id="delivery-time"
+            class="startorder-action2-box-options"
+          >
+            <option selected="selected" disabled="" value="">
+              Select Time
+            </option>
+            <option selected="selected" value="12:00 PM">12:00 PM</option>
+            <option value="12:15 PM">12:15 PM</option>
+            <option value="12:30 PM">12:30 PM</option>
+            <option value="12:45 PM">12:45 PM</option>
+            <option value="01:00 PM">01:00 PM</option>
+            <option value="01:15 PM">01:15 PM</option>
+            <option value="01:30 PM">01:30 PM</option>
+            <option value="01:45 PM">01:45 PM</option>
+            <option value="02:00 PM">02:00 PM</option>
+            <option value="02:15 PM">02:15 PM</option>
+            <option value="02:30 PM">02:30 PM</option>
+            <option value="02:45 PM">02:45 PM</option>
+            <option value="03:00 PM">03:00 PM</option>
+            <option value="03:15 PM">03:15 PM</option>
+            <option value="03:30 PM">03:30 PM</option>
+            <option value="03:45 PM">03:45 PM</option>
+            <option value="04:00 PM">04:00 PM</option>
+            <option value="04:15 PM">04:15 PM</option>
+            <option value="04:30 PM">04:30 PM</option>
+            <option value="04:45 PM">04:45 PM</option>
+            <option value="05:00 PM">05:00 PM</option>
+            <option value="05:15 PM">05:15 PM</option>
+            <option value="05:30 PM">05:30 PM</option>
+            <option value="05:45 PM">05:45 PM</option>
+            <option value="06:00 PM">06:00 PM</option>
+            <option value="06:15 PM">06:15 PM</option>
+            <option value="06:30 PM">06:30 PM</option>
+            <option value="06:45 PM">06:45 PM</option>
+            <option value="07:00 PM">07:00 PM</option>
+            <option value="07:15 PM">07:15 PM</option>
+            <option value="07:30 PM">07:30 PM</option>
+            <option value="07:45 PM">07:45 PM</option>
+            <option value="08:00 PM">08:00 PM</option>
+            <option value="08:15 PM">08:15 PM</option>
+            <option value="08:30 PM">08:30 PM</option>
+            <option value="08:45 PM">08:45 PM</option>
+            <option value="09:00 PM">09:00 PM</option>
+            <option value="09:15 PM">09:15 PM</option>
+            <option value="09:30 PM">09:30 PM</option>
+            <option value="09:45 PM">09:45 PM</option>
+            <option value="10:00 PM">10:00 PM</option>
+            <option value="10:15 PM">10:15 PM</option>
+            <option value="10:30 PM">10:30 PM</option>
+            <option value="10:45 PM">10:45 PM</option>
+          </select>
+          <input
+            type="submit"
+            id="startorder-action2-box-options-submit"
+            class="startorder-action2-box-options"
+            value="Proceed"
+          />
+        </form>
+
+        <a href="#" class="close"><h4>Back</h4></a>
       </div>
     </div>
 
+    <!-- Link JavaScript -->
     <script src="script.js"></script>
   </body>
 </html>

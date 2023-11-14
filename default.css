@@ -1,0 +1,138 @@
+/* Nav Bar */
+header nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3vh 8vw;
+}
+
+#nav-kfc {
+  width: 12%;
+  height: 12%;
+}
+
+#nav-options {
+  display: flex;
+  flex-direction: row;
+  font-family: "Heebo", sans-serif;
+  font-weight: 700;
+  font-size: 1.5em;
+  gap: 5vw;
+}
+
+.nav-option,
+.nav-option:visited,
+.nav-option:hover,
+.nav-option:active {
+  color: #000000;
+  text-decoration: none;
+}
+
+#nav-order {
+  background-color: #f40027;
+  border: none;
+  padding: 1.2% 2.2%;
+  border-radius: 999px;
+}
+
+#nav-order-text {
+  font-family: "Heebo", sans-serif;
+  font-weight: 700;
+  font-size: 1.4em;
+  color: white;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+#footer-kfclogo {
+  width: 6.5vw;
+  margin: 3%;
+}
+
+#footer-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0.1% 0;
+}
+
+.footer-options-option:first-child {
+  margin-left: 10%;
+}
+
+.footer-options-option:last-child {
+  margin-right: 10%;
+}
+
+#footer-socials {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 2%;
+  margin: 2% 0;
+}
+
+#footer-socials a,
+.footer-socials-img {
+  width: 2.5vw;
+}
+
+/* Start of Website Style */
+html {
+  background-color: #faf5f2;
+  font-family: "Heebo", sans-serif;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header Style */
+h1 {
+  font-family: "Oswald", sans-serif;
+  font-size: 3em;
+  margin: 0.3em;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 2em;
+  margin-bottom: 2px;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 2.4em;
+  margin-bottom: 2px;
+  margin: 10%;
+}
+
+h4 {
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  font-size: 1.3em;
+  line-height: 1.2em;
+  margin-top: 6px;
+}
+
+.footer-options-option ul li a {
+  color: black;
+  font-weight: 400;
+  font-size: 1.2em;
+  line-height: 2em;
+  text-decoration: none;
+}
