@@ -90,6 +90,7 @@ footer {
 html {
   background-color: #faf5f2;
   font-family: "Heebo", sans-serif;
+  scroll-behavior: smooth;
 }
 body {
   display: flex;

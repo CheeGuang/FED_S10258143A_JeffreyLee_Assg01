@@ -13,6 +13,9 @@
   height: 75vh;
   margin-top: 5vh;
   border-radius: 20px 50px 20px 20px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10vh;
 }
 
 #menu-nav div {
@@ -39,10 +42,11 @@
 /* Menu Items */
 .menu-category-title {
   margin-bottom: 3vh;
+  padding-top: 3vh;
 }
 
 .menu-category {
-  margin-bottom: 5vh;
+  margin-bottom: 4vh;
 }
 
 .menu-items {
@@ -61,6 +65,7 @@
   border-radius: 2.3vh;
   position: relative;
   padding: 0px;
+  margin-bottom: -0.5vh;
 }
 
 .menu-item-display {
@@ -88,14 +93,10 @@
   left: 1vw;
 }
 
-.menu-item-display h4,
-.menu-item-display h4:visited,
-.menu-item-display h4:hover,
-.menu-item-display h4:active,
-.menu-item-price,
-.menu-item-price:visited,
-.menu-item-price:hover,
-.menu-item-price:active {
+a,
+a:visited,
+a:hover,
+a:active {
   color: #000000;
 
   text-decoration: none !important;
@@ -106,6 +107,8 @@
   bottom: 3vh;
   right: 1vw;
   border: none;
+  font-weight: 700;
+  font-size: 0.9em;
 }
 
 .menu-item-add {
