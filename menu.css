@@ -12,6 +12,7 @@
   display: inline;
   height: 75vh;
   margin-top: 5vh;
+  margin-bottom: 5vh;
   border-radius: 20px 50px 20px 20px;
   position: -webkit-sticky;
   position: sticky;
@@ -122,6 +123,8 @@ a:active {
   border-radius: 999px;
 }
 
+/* Display Item */
+
 #display-item {
   background: rgba(33, 28, 28, 0.5);
   width: 100%;
@@ -137,10 +140,10 @@ a:active {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 70%;
-  height: 50%;
-  padding: 3vh;
-  border-radius: 20px;
+  width: 65%;
+  height: 35vw;
+  padding: 4vh;
+  border-radius: 4vh;
   position: absolute;
   top: 0;
   right: 0;
@@ -150,19 +153,63 @@ a:active {
   background: #faf5f2;
 }
 
+#menu-item-img {
+  width: 35vw;
+  border-radius: 3vh;
+}
+
+#display-item-box-header-title {
+  margin-bottom: 2vh;
+}
+
 #display-item-content {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2vw;
 }
 
 #display-item-footer {
   display: flex;
   flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  align-items: start;
+  width: 100%;
+  height: 17vh;
 }
 
 #display-item-footer-counter {
   display: flex;
   flex-direction: row;
+  width: 20%;
+  margin-right: 2vw;
+}
+
+#display-item-footer-counter button {
+  width: 5vh;
+  height: 5vh;
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 1.5em;
+}
+
+#display-item-footer-counter h2 {
+  margin: 0 1.2vw;
+}
+
+#display-item-footer span button {
+  border: none;
+  background-color: #f40027;
+  cursor: pointer;
+}
+
+#display-item-buttons-add {
+  height: 8vh;
+  width: 25vw;
+  color: #ffffff;
+  border-radius: 999px;
 }
 
 #display-item:target {
@@ -172,9 +219,10 @@ a:active {
   display: block;
   color: #e3002b;
   padding: 0 12px;
-  margin: 10px;
+  margin: 4.5vh;
   text-decoration: none;
   font-size: 14pt;
+  text-align: center;
   cursor: pointer;
 }
 

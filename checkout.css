@@ -1,0 +1,13 @@
+#checkout {
+  width: 70vw;
+}
+
+.checkout-card {
+  background-color: #ffffff;
+  padding: 1.5vw;
+  border-radius: 3vh;
+}
+
+.checkout-card hr {
+  margin: 2vh 0;
+}
