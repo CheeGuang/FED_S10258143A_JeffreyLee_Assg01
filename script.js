@@ -6,6 +6,16 @@ fetch("navbar.html")
   })
   .catch((error) => console.error(error));
 
+// Load Nav Bar
+function loadCartNavBar() {
+  fetch("navbarcart.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("navbar-container").innerHTML = data;
+    })
+    .catch((error) => console.error(error));
+}
+
 // Fetch and insert the footer HTML using JavaScript
 fetch("footer.html")
   .then((response) => response.text())

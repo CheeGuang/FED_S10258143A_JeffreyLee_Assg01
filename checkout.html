@@ -31,9 +31,9 @@
       <article id="checkout-summary" class="checkout-card">
         <h2>Order Summary</h2>
         <hr />
-        <div>
+        <div class="checkout-summary-content">
           <img src="assets/images/HotDeals1.jpg" alt="Hot Deals 1" />
-          <span
+          <span class="checkout-summary-content-details"
             ><h4>Cheesy Zinger Meltz Meal</h4>
             <ul>
               <li>1x Cheesy Zinger Melts</li>
@@ -41,109 +41,101 @@
               <li>1x Coke Zero Regular</li>
             </ul>
           </span>
-          <span id="display-item-footer-counter"
+          <span id="checkout-summary-content-counter"
             ><button>+</button>
             <h2>1</h2>
             <button>-</button></span
           >
           <h4>$10.45</h4>
-          <hr />
-          <span
-            ><span
-              ><h4>Subtotal</h4>
-              <h4>$10.45</h4></span
-            ><span
-              ><h4>Delivery</h4>
-              <h4>$6.00</h4></span
-            ><span
-              ><h4>Total</h4>
-              <h4>$16.45</h4></span
-            ></span
-          >
         </div>
+        <hr />
+        <span
+          ><span class="checkout-summary-fees"
+            ><h4>Subtotal</h4>
+            <h4>$10.45</h4></span
+          ><span class="checkout-summary-fees"
+            ><h4>Delivery</h4>
+            <h4>$6.00</h4></span
+          ><span class="checkout-summary-fees"
+            ><h4>Total</h4>
+            <h4>$16.45</h4></span
+          ></span
+        >
       </article>
-      <article id="checkout-summary" class="checkout-card">
+      <article id="checkout-promo" class="checkout-card">
         <h2>Promo Code</h2>
         <hr />
-        <div>
-          <span
-            ><input type="text" />
-            <input type="submit" />
+        <form id="checkout-promo-form">
+          <input
+            id="checkout-promo-textbox"
+            class="checkout-promo-button"
+            type="text"
+            placeholder="Enter Promo Code"
+          />
+          <input
+            class="checkout-promo-button checkout-promo-submit"
+            type="submit"
+          />
+        </form>
+        <div id="checkout-promo-section">
+          <span class="checkout-promo-code">
+            <div>
+              <h4>$5 OFF, Min $15</h4>
+              <div class="checkout-promo-code-promocode">
+                <h4>Promo Code:&nbsp</h4>
+                <h4>ILOVEFED</h4>
+              </div>
+              <h4>Valid: 1 November 2024</h4>
+            </div>
+            <button class="checkout-promo-code-apply"><h4>Apply</h4></button>
           </span>
-          <span id="display-item-footer-counter"
-            ><button>+</button>
-            <h2>1</h2>
-            <button>-</button></span
-          >
-          <h4>$10.45</h4>
-          <hr />
-          <span
-            ><span
-              ><h4>Subtotal</h4>
-              <h4>$10.45</h4></span
-            ><span
-              ><h4>Delivery</h4>
-              <h4>$6.00</h4></span
-            ><span
-              ><h4>Total</h4>
-              <h4>$16.45</h4></span
-            ></span
-          >
-          <span
-            ><span
-              ><span
-                ><h4>$5 OFF, Min $15</h4>
-                <span
-                  ><h4>Promo Code:</h4>
-                  <h4>ILOVEFED</h4></span
-                >
-                <h4>Valid: 1 November 2024</h4>
-              </span></span
-            ></span
-          >
+          <span class="checkout-promo-code">
+            <div>
+              <h4>$5 OFF, Min $15</h4>
+              <div class="checkout-promo-code-promocode">
+                <h4>Promo Code:&nbsp</h4>
+                <h4>ILOVEFED</h4>
+              </div>
+              <h4>Valid: 1 November 2024</h4>
+            </div>
+            <button class="checkout-promo-code-apply"><h4>Apply</h4></button>
+          </span>
         </div>
       </article>
-      <article id="checkout-summary" class="checkout-card">
+      <article id="checkout-payment" class="checkout-card">
         <h2>Payment</h2>
         <hr />
-        <div>
-          <span
-            ><input type="text" />
-            <input type="submit" />
-          </span>
-          <span id="display-item-footer-counter"
-            ><button>+</button>
-            <h2>1</h2>
-            <button>-</button></span
-          >
-          <h4>$10.45</h4>
-          <hr />
-          <span
-            ><span
-              ><h4>Subtotal</h4>
-              <h4>$10.45</h4></span
-            ><span
-              ><h4>Delivery</h4>
-              <h4>$6.00</h4></span
-            ><span
-              ><h4>Total</h4>
-              <h4>$16.45</h4></span
-            ></span
-          >
-          <span
-            ><span
-              ><span
-                ><h4>$5 OFF, Min $15</h4>
-                <span
-                  ><h4>Promo Code:</h4>
-                  <h4>ILOVEFED</h4></span
-                >
-                <h4>Valid: 1 November 2024</h4>
-              </span></span
-            ></span
-          >
+        <input
+          class="checkout-payment-textbox checkout-promo-button"
+          type="text"
+          placeholder="Name of Card Holder"
+        />
+        <input
+          class="checkout-payment-textbox checkout-promo-button"
+          type="text"
+          placeholder="Card Number"
+        />
+        <div id="checkout-payment-lastrow">
+          <input
+            class="checkout-payment-textbox checkout-promo-button"
+            type="text"
+            placeholder="Expiry Date"
+          />
+          <input
+            class="checkout-payment-textbox checkout-promo-button"
+            type="text"
+            placeholder="CVV"
+          />
+          <input
+            id="checkout-payment-submit"
+            class="checkout-promo-button checkout-promo-submit"
+            type="submit"
+          />
         </div>
       </article>
+      <button id="checkout-proceed" class="checkout-promo-submit">
+        <h2>Proceed</h2>
+      </button>
     </section>
     <footer id="footer"></footer>
 

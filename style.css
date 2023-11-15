@@ -138,6 +138,7 @@
   top: 0;
   left: 0;
   display: none;
+  z-index: 2;
 }
 
 #startorder-action1-box {
@@ -157,6 +158,7 @@
   left: 0;
   margin: auto;
   background: #faf5f2;
+  z-index: 3;
 }
 
 #startorder-action1:target {
@@ -220,6 +222,7 @@ form {
   align-items: center;
   gap: 4vh;
 }
+
 #startorder-action2 {
   background: rgba(33, 28, 28, 0.5);
   width: 100%;
@@ -228,6 +231,7 @@ form {
   top: 0;
   left: 0;
   display: none;
+  z-index: 2;
 }
 
 #startorder-action2-box {
@@ -247,6 +251,7 @@ form {
   left: 0;
   margin: auto;
   background: #faf5f2;
+  z-index: 3;
 }
 
 #startorder-action2:target {
