@@ -7,13 +7,28 @@ fetch("navbar.html")
   .catch((error) => console.error(error));
 
 // Load Nav Bar
+let firstLoad = true;
 function loadCartNavBar() {
-  fetch("navbarcart.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("navbar-container").innerHTML = data;
-    })
-    .catch((error) => console.error(error));
+  if (firstLoad) {
+    fetch("navbarcart.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("navbar-container").innerHTML = data;
+      })
+      .catch((error) => console.error(error));
+
+    firstLoad = false;
+  }
+  setTimeout(() => {
+    updateCartCounter();
+  }, "100");
+}
+
+// Load Navbar with Checkout upon clicking "Add to Cart"
+var path = window.location.pathname;
+var page = path.split("/").pop();
+if (page === "checkout.html") {
+  loadCartNavBar();
 }
 
 // Fetch and insert the footer HTML using JavaScript
@@ -26,7 +41,6 @@ fetch("footer.html")
 
 // Function to dynamically display name of Start Order Action
 function action1_insert_name(clicked_id) {
-  console.log(clicked_id);
   if (clicked_id === "startorder-option-dinein") {
     document.getElementById("startorder-action1-box-header").innerHTML =
       document
@@ -94,4 +108,89 @@ function action2_insert_day() {
   document.getElementById("delivery-day-dayafttmr").innerHTML = document
     .getElementById("delivery-day-dayafttmr")
     .innerHTML.replace("%DayAftTmr%", dayNameDayAfterTomorrow);
+}
+
+// Display Loading function and load index.html
+function showLoader() {
+  var overlay = document.getElementById("overlay");
+  overlay.style.display = "flex";
+  setTimeout(function () {
+    overlay.style.display = "none";
+  }, 4000); // Display for 1 second
+  window.open("index.html", "_blank");
+}
+
+// Counter Logic for Item Display
+let countValue = 1;
+
+function updateCounter(value) {
+  document.getElementById("display-item-footer-counter-number").innerText =
+    value;
+}
+
+function increment() {
+  countValue++;
+  updateCounter(countValue);
+}
+
+function decrement() {
+  if (countValue !== 1) {
+    countValue--;
+    updateCounter(countValue);
+  }
+}
+
+// Update Cart Count
+let countCartCounter = 0;
+let totalCartPrice = 0;
+function updateCartCounter() {
+  // Update Cart Item Count
+  countCartCounter += countValue;
+  document.getElementById("nav-summary-basket-count").innerText =
+    countCartCounter;
+  countCounter = 1;
+
+  // Update Cart Item Price
+  totalCartPrice += calcTotalItemPrice();
+  document.getElementById("nav-summary-basket-price").innerText =
+    "$" + parseFloat(totalCartPrice).toFixed(2);
+}
+
+// Update Content in Display Item
+function getImagePathDisplayImage(element) {
+  // Get Image Path from selected item
+  var imgElement = element.querySelector("img");
+  if (imgElement) {
+    var imgPath = imgElement.src;
+    replaceImagePath(imgPath);
+  }
+  countValue = 1;
+  updateCounter(1);
+}
+
+// Replace Image tag path with given path
+function replaceImagePath(newPath) {
+  var image = document.getElementById("menu-item-img"); // Get the image element by its ID
+  if (image) {
+    image.src = newPath; // Set the new image path
+  } else {
+    console.log("Image element not found");
+  }
+}
+
+// Get Price of Item
+function getItemPrice(element) {
+  var itemPrice = element.querySelector(".menu-item-price").innerText;
+  itemPrice = itemPrice.slice(1);
+  itemPrice = Number(itemPrice).toFixed(2);
+
+  localStorage.setItem("selectedItemPrice", itemPrice);
+}
+
+// Calculate Total Price
+function calcTotalItemPrice() {
+  var ItemQuantity = document.getElementById(
+    "display-item-footer-counter-number"
+  ).innerText;
+  return localStorage.getItem("selectedItemPrice") * ItemQuantity;
 }

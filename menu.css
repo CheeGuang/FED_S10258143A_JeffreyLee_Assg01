@@ -107,7 +107,6 @@ a:visited,
 a:hover,
 a:active {
   color: #000000;
-
   text-decoration: none !important;
 }
 
@@ -208,7 +207,10 @@ a:active {
 }
 
 #display-item-footer-counter h2 {
-  margin: 0 1.2vw;
+  margin-top: 0;
+  padding: 0 1.6vw;
+  width: 2.6vw;
+  text-align: center;
 }
 
 #display-item-footer span button {

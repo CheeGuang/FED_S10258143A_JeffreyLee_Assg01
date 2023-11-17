@@ -43,18 +43,22 @@ header {
   text-decoration: none;
 }
 
-#nav-order {
+#nav-checkout {
   background-color: #f40027;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
-  padding: 1.2% 2.2%;
+  padding: 15.2% 20.2%;
   border-radius: 999px;
 }
 
-#nav-order-text {
+#nav-checkout h4 {
   font-family: "Heebo", sans-serif;
   font-weight: 700;
   font-size: 1.4em;
   color: white;
+  margin-bottom: 0;
 }
 
 /* Nav BAr With Cart */
@@ -172,4 +176,12 @@ p {
   font-size: 1.2em;
   line-height: 2em;
   text-decoration: none;
+}
+
+/* Remove underline on a */
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none !important;
 }

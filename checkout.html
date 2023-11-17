@@ -139,12 +139,19 @@
           />
         </div>
       </article>
-      <button id="checkout-proceed" class="checkout-promo-submit">
+      <button
+        id="checkout-proceed"
+        class="checkout-promo-submit"
+        onClick="showLoader()"
+      >
         <h2>Proceed</h2>
       </button>
     </section>
     <footer id="footer"></footer>
-
+    <!-- Loading Bar -->
+    <div class="overlay" id="overlay">
+      <div class="loader"></div>
+    </div>
     <!-- Link JavaScript -->
     <script src="script.js"></script>
   </body>
