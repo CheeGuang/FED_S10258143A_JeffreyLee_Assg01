@@ -120,12 +120,22 @@ function showLoader() {
   window.open("index.html", "_blank");
 }
 
+// Item Display Logic ----------------------------------------------
+function displayItem(value) {
+  getImagePathDisplayImage(value);
+  getItemPrice(value);
+  updateDisplayItemTitle(value);
+  updateDisplayItemPrice(value);
+}
+
 // Counter Logic for Item Display
 let countValue = 1;
 
 function updateCounter(value) {
   document.getElementById("display-item-footer-counter-number").innerText =
     value;
+  document.getElementById("display-item-box-header-price").innerText =
+    "$" + Number(calcTotalItemPrice()).toFixed(2);
 }
 
 function increment() {
@@ -156,7 +166,7 @@ function updateCartCounter() {
     "$" + parseFloat(totalCartPrice).toFixed(2);
 }
 
-// Update Content in Display Item
+// Update Image in Display Item
 function getImagePathDisplayImage(element) {
   // Get Image Path from selected item
   var imgElement = element.querySelector("img");
@@ -178,6 +188,18 @@ function replaceImagePath(newPath) {
   }
 }
 
+// Update Display Item Title
+function updateDisplayItemTitle(value) {
+  document.getElementById("display-item-box-header-title").innerText =
+    value.querySelector(".menu-item-title").innerText;
+}
+
+// Update Display Item Price
+function updateDisplayItemPrice(value) {
+  document.getElementById("display-item-box-header-price").innerText =
+    value.querySelector(".menu-item-price").innerText;
+}
+
 // Get Price of Item
 function getItemPrice(element) {
   var itemPrice = element.querySelector(".menu-item-price").innerText;
@@ -193,4 +215,65 @@ function calcTotalItemPrice() {
     "display-item-footer-counter-number"
   ).innerText;
   return localStorage.getItem("selectedItemPrice") * ItemQuantity;
+}
+
+// Add To Cart Logic (Local Storage)
+let cart = [];
+function addItemToLocalStorage() {
+  itemDetails = {
+    ["title"]: document.getElementById("display-item-box-header-title")
+      .innerText,
+    ["quantity"]: parseFloat(
+      document.getElementById("display-item-footer-counter-number").innerText
+    ),
+    ["price"]: parseFloat(
+      document
+        .getElementById("display-item-box-header-price")
+        .innerText.slice(1)
+    ),
+
+    ["totalPrice"]:
+      parseFloat(
+        document.getElementById("display-item-footer-counter-number").innerText
+      ) *
+      parseFloat(
+        document
+          .getElementById("display-item-box-header-price")
+          .innerText.slice(1)
+      ),
+    ["imagePath"]: getImagePath(),
+  };
+  if (localStorage.getItem("cart") !== null) {
+    var itemExist = false;
+    cart = JSON.parse(localStorage.getItem("cart"));
+    console.log(localStorage.getItem("cart"));
+    for (i of cart) {
+      console.log(itemDetails["title"]);
+      console.log(i["title"]);
+      if (itemDetails["title"] === i["title"]) {
+        i["quantity"] =
+          parseFloat(i["quantity"]) + parseFloat(itemDetails["quantity"]);
+        i["totalPrice"] += itemDetails["totalPrice"];
+        itemExist = true;
+        break;
+      }
+    }
+    if (!itemExist) {
+      cart.push(itemDetails);
+    }
+  } else {
+    cart.push(itemDetails);
+  }
+  localStorage.setItem("cart", JSON.stringify(cart));
+  console.log(cart);
+}
+
+// Get Image Path
+function getImagePath() {
+  // Get Image Path from selected item
+  var imgElement = document.getElementById("menu-item-img");
+  if (imgElement) {
+    var imgPath = imgElement.src;
+  }
+  return imgPath;
 }
