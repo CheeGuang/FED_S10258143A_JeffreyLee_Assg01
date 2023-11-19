@@ -28,7 +28,7 @@ As a user, I want the website to remember my cart even after I close my browser,
 
 As a user, I want to see a consistent use of color and design in the KFC Website. Thus, I decided to incorporate KFC's signature "Pigment Red" colour into every page.
 
-[Link to Wireframe](https://www.figma.com/file/fOMA7jiWh5Dd3S2yAePSVI/KFC-Website-Wireframe?type=design&node-id=0%3A1&mode=design&t=yISY7cTGPxNiBmaY-1)
+### [Link to Wireframe](https://www.figma.com/file/fOMA7jiWh5Dd3S2yAePSVI/KFC-Website-Wireframe?type=design&node-id=0%3A1&mode=design&t=yISY7cTGPxNiBmaY-1)
 
 ## Features Summary:
 
