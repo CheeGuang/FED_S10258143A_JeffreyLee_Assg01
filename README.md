@@ -37,21 +37,19 @@ As a user, I want to see a consistent use of color and design in the KFC Website
 - Provide links to external resources, such as the band's social media profiles
 - Micro interactions when interacting with the site eg, clicking on an interactable area to show some animation, mouse over interactions, scrolling interactions when interacting with the site.
 
-### Features Description In Each Page:
-
-#### Home page:
+### Home page:
 
 - It will a navigation bar for users to easily navigate around the KFC website
 - It will include banners on the current events/promotions as a slideshow.
 - It will include a footer with content related to the company and its social media sites.
 
-#### Menu:
+### Menu:
 
 - Image, item title and price will be available for each listing. There will also an add to cart button for users to add the items they want to their shopping cart.
 - Users can click onto a listing to view more details and select the quantity of the item they would like to add to cart.
 - After adding items to cart, the total number and price of items in the cart, and Checkout button will appear on the navbar. By clickin on the Checkout button to checkout their cart.
 
-#### Checkout Page:
+### Checkout Page:
 
 - It will include a checkout page for user to enter their delivery address, change quantity of items in cart, view total price payable, apply promo code and enter billing information to make payment for their order.
 
