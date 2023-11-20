@@ -60,13 +60,13 @@
         <span
           ><span class="checkout-summary-fees"
             ><h4>Subtotal</h4>
-            <h4>$10.45</h4></span
+            <h4 id="checkout-summary-fees-subtotal">$10.45</h4></span
           ><span class="checkout-summary-fees"
             ><h4>Delivery</h4>
-            <h4>$6.00</h4></span
+            <h4 id="checkout-summary-fees-delivery">$6.00</h4></span
           ><span class="checkout-summary-fees"
             ><h4>Total</h4>
-            <h4>$16.45</h4></span
+            <h4 id="checkout-summary-fees-total">$16.45</h4></span
           ></span
         >
       </article>
@@ -144,7 +144,7 @@
       <button
         id="checkout-proceed"
         class="checkout-promo-submit"
-        onClick="showLoader()"
+        onClick="showLoader();clearCartLocalStorage()"
       >
         <h2>Proceed</h2>
       </button>

@@ -152,7 +152,7 @@ if (page === "checkout.html") {
   setTimeout(() => {
     updateCartCounter();
     DisplayLocalStorageCartContent();
-  }, "200");
+  }, "350");
 } else if (page === "menu.html") {
   loadCartNavBar();
   setTimeout(() => {
@@ -312,15 +312,18 @@ const checkoutSummaryContents = document.getElementById(
 // HTML To be added
 let htmlContent = ``;
 
+// Display Items from Local Storage onto Checkout Page
 function DisplayLocalStorageCartContent() {
   let localStorageCart = JSON.parse(localStorage.getItem("cart"));
+  let subtotal = 0;
+  let delivery = 6;
+
   // Loop through Local Storage Cart and add each iteration to htmlContent
   for (i = 0; i < localStorageCart.length; i++) {
     let imagePath = localStorageCart[i]["imagePath"];
     let title = localStorageCart[i]["title"];
     let quantity = localStorageCart[i]["quantity"];
-    let totalPrice =
-      "$" + parseFloat(localStorageCart[i]["totalPrice"]).toFixed(2);
+    let totalPrice = localStorageCart[i]["totalPrice"];
     htmlContent += `
     <div class="checkout-summary-content">
       <img src="${imagePath}" alt="${title}" />
@@ -337,12 +340,21 @@ function DisplayLocalStorageCartContent() {
         <h2>${quantity}</h2>
         <button>-</button>
       </span>
-      <h4>${totalPrice}</h4>
+      <h4>${"$" + parseFloat(totalPrice).toFixed(2)}</h4>
     </div>`;
 
-    console.log(title);
+    subtotal += totalPrice;
   }
-  console.log(htmlContent);
   // Insert the HTML content into the container element
   checkoutSummaryContents.innerHTML = htmlContent;
+  console.log(subtotal);
+  document.getElementById("checkout-summary-fees-subtotal").innerText =
+    "$" + parseFloat(subtotal).toFixed(2);
+  document.getElementById("checkout-summary-fees-total").innerText =
+    "$" + parseFloat(subtotal + delivery).toFixed(2);
+}
+
+// Clear Local Storage of cart
+function clearCartLocalStorage() {
+  localStorage.removeItem("cart");
 }
