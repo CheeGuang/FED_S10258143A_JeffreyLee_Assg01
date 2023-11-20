@@ -24,13 +24,6 @@ function loadCartNavBar() {
   }, "100");
 }
 
-// Load Navbar with Checkout upon clicking "Add to Cart"
-var path = window.location.pathname;
-var page = path.split("/").pop();
-if (page === "checkout.html") {
-  loadCartNavBar();
-}
-
 // Fetch and insert the footer HTML using JavaScript
 fetch("footer.html")
   .then((response) => response.text())
@@ -120,7 +113,7 @@ function showLoader() {
   window.open("index.html", "_blank");
 }
 
-// Item Display Logic ----------------------------------------------
+// Item Display Logic -------------------------------------------------------------------------------------------
 function displayItem(value) {
   getImagePathDisplayImage(value);
   getItemPrice(value);
@@ -150,20 +143,55 @@ function decrement() {
   }
 }
 
-// Update Cart Count
-let countCartCounter = 0;
-let totalCartPrice = 0;
-function updateCartCounter() {
-  // Update Cart Item Count
-  countCartCounter += countValue;
-  document.getElementById("nav-summary-basket-count").innerText =
-    countCartCounter;
-  countCounter = 1;
+// Load Navbar with Checkout upon clicking "Add to Cart"
+var path = window.location.pathname;
+var page = path.split("/").pop();
+console.log(page === "menu.html");
+if (page === "checkout.html") {
+  loadCartNavBar();
+  setTimeout(() => {
+    updateCartCounter();
+    DisplayLocalStorageCartContent();
+  }, "200");
+} else if (page === "menu.html") {
+  loadCartNavBar();
+  setTimeout(() => {
+    updateCartCounter();
+  }, "200");
+}
 
+let firstEnterMenu = true;
+// Update Cart Count
+function updateCartCounter() {
+  // Retrieve Cart Details from Local Storage
+  let localStorageCart = null;
+  let localStorageCartPrice = null;
+  let localStorageCartCounter = null;
+  try {
+    localStorageCart = JSON.parse(localStorage.getItem("cart"));
+    for (i = 0; i < localStorageCart.length; i++) {
+      localStorageCartCounter += localStorageCart[i]["quantity"];
+    }
+    localStorageCartPrice = JSON.parse(localStorage.getItem("price"));
+    for (i = 0; i < localStorageCart.length; i++) {
+      localStorageCartPrice +=
+        localStorageCart[i]["quantity"] * localStorageCart[i]["price"];
+    }
+  } catch {
+    localStorageCartCounter = 0;
+  }
+  // Update Cart Item Count
+  // localStorageCartCounter += countValue;
+  document.getElementById("nav-summary-basket-count").innerText =
+    localStorageCartCounter;
   // Update Cart Item Price
-  totalCartPrice += calcTotalItemPrice();
-  document.getElementById("nav-summary-basket-price").innerText =
-    "$" + parseFloat(totalCartPrice).toFixed(2);
+  if (localStorageCartPrice !== null) {
+    document.getElementById("nav-summary-basket-price").innerText =
+      "$" + parseFloat(localStorageCartPrice).toFixed(2);
+  } else {
+    document.getElementById("nav-summary-basket-price").innerText = "$0.00";
+  }
+  firstEnterMenu = false;
 }
 
 // Update Image in Display Item
@@ -246,10 +274,7 @@ function addItemToLocalStorage() {
   if (localStorage.getItem("cart") !== null) {
     var itemExist = false;
     cart = JSON.parse(localStorage.getItem("cart"));
-    console.log(localStorage.getItem("cart"));
     for (i of cart) {
-      console.log(itemDetails["title"]);
-      console.log(i["title"]);
       if (itemDetails["title"] === i["title"]) {
         i["quantity"] =
           parseFloat(i["quantity"]) + parseFloat(itemDetails["quantity"]);
@@ -276,4 +301,48 @@ function getImagePath() {
     var imgPath = imgElement.src;
   }
   return imgPath;
+}
+
+// Checkout Page Order Summary Logic --------------------------------------------------------------------
+// Get the element where you want to insert HTML content
+const checkoutSummaryContents = document.getElementById(
+  "checkout-summary-contents"
+);
+
+// HTML To be added
+let htmlContent = ``;
+
+function DisplayLocalStorageCartContent() {
+  let localStorageCart = JSON.parse(localStorage.getItem("cart"));
+  // Loop through Local Storage Cart and add each iteration to htmlContent
+  for (i = 0; i < localStorageCart.length; i++) {
+    let imagePath = localStorageCart[i]["imagePath"];
+    let title = localStorageCart[i]["title"];
+    let quantity = localStorageCart[i]["quantity"];
+    let totalPrice =
+      "$" + parseFloat(localStorageCart[i]["totalPrice"]).toFixed(2);
+    htmlContent += `
+    <div class="checkout-summary-content">
+      <img src="${imagePath}" alt="${title}" />
+      <span class="checkout-summary-content-details">
+        <h4>${title}</h4>
+        <ul>
+          <li>1x Example Item 1</li>
+          <li>2x Example Item 2</li>
+          <li>1x Example Item 3</li>
+        </ul>
+      </span>
+      <span id="checkout-summary-content-counter">
+        <button>+</button>
+        <h2>${quantity}</h2>
+        <button>-</button>
+      </span>
+      <h4>${totalPrice}</h4>
+    </div>`;
+
+    console.log(title);
+  }
+  console.log(htmlContent);
+  // Insert the HTML content into the container element
+  checkoutSummaryContents.innerHTML = htmlContent;
 }

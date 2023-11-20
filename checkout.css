@@ -68,6 +68,11 @@
   margin: 0 1.2vw;
 }
 
+.checkout-summary-content h4:last-child {
+  width: 9vw;
+  text-align: end;
+}
+
 .checkout-summary-fees {
   display: flex;
   flex-direction: row;
