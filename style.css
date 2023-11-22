@@ -51,7 +51,7 @@ header {
   margin-bottom: 0;
 }
 
-/* Nav BAr With Cart */
+/* Nav Bar With Cart */
 
 #nav-summary {
   display: flex;
@@ -68,9 +68,30 @@ header {
   background-position: center; /* Center the background image */
   background-repeat: no-repeat; /* Prevent the image from repeating */
 }
+
 #nav-summary div h4,
 #nav-summary h4 {
   margin-bottom: 0;
+}
+
+#showButton {
+  background-color: #f3e0d6;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+#showButton {
+  transition: transform 0.1s;
+}
+#showButton:active {
+  transform: scale(0.95);
+}
+
+/* Button hover effect */
+#showButton:hover {
+  background-color: #efdace;
+  cursor: pointer;
 }
 
 #nav-checkout {

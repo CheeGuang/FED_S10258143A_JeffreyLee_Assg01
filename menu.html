@@ -24,27 +24,46 @@
     <header>
       <div id="navbar-container"></div>
     </header>
+    <div id="viewcart" class="not-displayed">
+      <!-- Content that will appear on click -->
+      <h2>Cart</h2>
+      <article id="viewcart-contents"></article>
+    </div>
     <section id="menu">
       <nav id="menu-nav">
         <div><h2>Menu</h2></div>
+
         <ul>
-          <li><a href="#hotdeals">Hot Deals</a></li>
-          <li><a href="#chicken">Chicken</a></li>
-          <li><a href="#boxes">Boxes</a></li>
-          <li><a href="#burger">Burger</a></li>
-          <li><a href="#wrap">Wrap</a></li>
-          <li><a href="#drinks">Drinks</a></li>
-          <li><a href="#sides">Sides</a></li>
-          <li><a href="#bowl">Bowls</a></li>
-          <li><a href="#for2-4">For 2-4</a></li>
-          <li><a href="#for5">For 5 or More</a></li>
+          <li>
+            <a class="hover-underline-animation" href="#hotdeals">Hot Deals</a>
+          </li>
+          <li>
+            <a class="hover-underline-animation" href="#chicken">Chicken</a>
+          </li>
+          <li><a class="hover-underline-animation" href="#boxes">Boxes</a></li>
+          <li>
+            <a class="hover-underline-animation" href="#burger">Burger</a>
+          </li>
+          <li><a class="hover-underline-animation" href="#wrap">Wrap</a></li>
+          <li>
+            <a class="hover-underline-animation" href="#drinks">Drinks</a>
+          </li>
+          <li><a class="hover-underline-animation" href="#sides">Sides</a></li>
+          <li><a class="hover-underline-animation" href="#bowl">Bowls</a></li>
+          <li>
+            <a class="hover-underline-animation" href="#for2-4">For 2-4</a>
+          </li>
+          <li>
+            <a class="hover-underline-animation" href="#for5">For 5 or More</a>
+          </li>
         </ul>
       </nav>
       <div>
         <article id="hotdeals" class="menu-category">
           <h1 class="menu-category-title">Hot Deals</h1>
+
           <ul class="menu-items">
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/HotDeals1.jpg" alt="" />
                 <h4 class="menu-item-title">Cheesy Zinger Meltz Meal</h4>
@@ -53,7 +72,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/HotDeals2.jpg" alt="" />
                 <h4 class="menu-item-title">Cheesy Zinger Meltz Box</h4>
@@ -62,7 +81,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/HotDeals3.jpg" alt="" />
                 <h4 class="menu-item-title">1 Cheesy Zinger Meltz</h4>
@@ -71,7 +90,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/HotDeals4.jpg" alt="" />
                 <h4 class="menu-item-title">Cheesy Zinger Meltz Set</h4>
@@ -80,7 +99,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/HotDeals5.jpg" alt="" />
                 <h4 class="menu-item-title">
@@ -91,7 +110,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/HotDeals6.jpg" alt="" />
                 <h4 class="menu-item-title">Cajun Wedges (ALC)</h4>
@@ -100,7 +119,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/HotDeals7.jpg" alt="" />
                 <h4 class="menu-item-title">Cheesy Cajun Wedges (ALC)</h4>
@@ -109,7 +128,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/HotDeals8.jpg" alt="" />
                 <h4 class="menu-item-title">Red Bull Zinger Meal</h4>
@@ -118,7 +137,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/HotDeals9.jpg" alt="" />
                 <h4 class="menu-item-title">
@@ -134,7 +153,7 @@
         <article id="chicken" class="menu-category">
           <h1 class="menu-category-title">Chicken</h1>
           <ul class="menu-items">
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Chicken1.jpg" alt="" />
                 <h4 class="menu-item-title">2pcs Chicken Box</h4>
@@ -143,7 +162,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Chicken2.jpg" alt="" />
                 <h4 class="menu-item-title">Cheesy Zinger Meltz Box</h4>
@@ -157,7 +176,7 @@
         <article id="boxes" class="menu-category">
           <h1 class="menu-category-title">Boxes</h1>
           <ul class="menu-items">
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Boxes1.jpg" alt="" />
                 <h4 class="menu-item-title">BBQ Cheese Zinger Box</h4>
@@ -166,7 +185,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Boxes2.jpg" alt="" />
                 <h4 class="menu-item-title">BBQ Pocket Box</h4>
@@ -175,7 +194,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Boxes3.jpg" alt="" />
                 <h4 class="menu-item-title">Original Recipe Burger Box</h4>
@@ -184,7 +203,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Boxes4.jpg" alt="" />
                 <h4 class="menu-item-title">Original Recipe Stacker Box</h4>
@@ -193,7 +212,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Boxes5.jpg" alt="" />
                 <h4 class="menu-item-title">Zinger Box</h4>
@@ -202,7 +221,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Boxes6.jpg" alt="" />
                 <h4 class="menu-item-title">Zinger Stacker Box</h4>
@@ -217,7 +236,7 @@
         <article id="burger" class="menu-category">
           <h1 class="menu-category-title">Burger</h1>
           <ul class="menu-items">
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Burger1.jpg" alt="" />
                 <h4 class="menu-item-title">Original Recipe Burger</h4>
@@ -226,7 +245,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Burger2.jpg" alt="" />
                 <h4 class="menu-item-title">Original Recipe Burger Stacker</h4>
@@ -235,7 +254,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Burger3.jpg" alt="" />
                 <h4 class="menu-item-title">Zinger</h4>
@@ -244,7 +263,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Burger4.jpg" alt="" />
                 <h4 class="menu-item-title">Zinger Stacker</h4>
@@ -258,7 +277,7 @@
         <article id="wrap" class="menu-category">
           <h1 class="menu-category-title">Wrap</h1>
           <ul class="menu-items">
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Wrap1.jpg" alt="" />
                 <h4 class="menu-item-title">BBQ Pockett</h4>
@@ -272,7 +291,7 @@
         <article id="drinks" class="menu-category">
           <h1 class="menu-category-title">Drinks</h1>
           <ul class="menu-items">
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Drinks1.jpg" alt="" />
                 <h4 class="menu-item-title">
@@ -283,7 +302,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Drinks2.jpg" alt="" />
                 <h4 class="menu-item-title">Coca-Cola® Zero Sugar</h4>
@@ -292,7 +311,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Drinks3.jpg" alt="" />
                 <h4 class="menu-item-title">Sprite</h4>
@@ -301,7 +320,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Drinks4.jpg" alt="" />
                 <h4 class="menu-item-title">Fanta® Grape</h4>
@@ -310,7 +329,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Drinks5.jpg" alt="" />
                 <h4 class="menu-item-title">Heaven & Earth® Iced Lemon Tea</h4>
@@ -319,7 +338,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Drinks6.jpg" alt="" />
                 <h4 class="menu-item-title">Sjora Mango Peach</h4>
@@ -328,7 +347,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Drinks7.jpg" alt="" />
                 <h4 class="menu-item-title">Iced Milo</h4>
@@ -337,7 +356,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Drinks8.jpg" alt="" />
                 <h4 class="menu-item-title">Natural Mineral Water</h4>
@@ -351,7 +370,7 @@
         <article id="sides" class="menu-category">
           <h1 class="menu-category-title">Sides</h1>
           <ul class="menu-items">
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img
                   src="assets/images/Sides1.jpg"
@@ -363,7 +382,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Sides2.jpg" alt="" />
                 <h4 class="menu-item-title">Nuggets (6pc)</h4>
@@ -372,7 +391,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Sides3.jpg" alt="" />
                 <h4 class="menu-item-title">Nuggets (20pcs)</h4>
@@ -381,7 +400,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Sides4.jpg" alt="" />
                 <h4 class="menu-item-title">Popcorn Chicken</h4>
@@ -390,7 +409,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Sides5.jpg" alt="" />
                 <h4 class="menu-item-title">Cheese Fries</h4>
@@ -399,7 +418,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Sides6.jpg" alt="" />
                 <h4 class="menu-item-title">Fries</h4>
@@ -408,7 +427,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Sides7.jpg" alt="" />
                 <h4 class="menu-item-title">Whipped Potato (med)</h4>
@@ -417,7 +436,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Sides8.jpg" alt="" />
                 <h4 class="menu-item-title">Whipped Potato (reg)</h4>
@@ -426,7 +445,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Sides9.jpg" alt="" />
                 <h4 class="menu-item-title">Egg Tarts (2pcs)</h4>
@@ -440,7 +459,7 @@
         <article id="bowl" class="menu-category">
           <h1 class="menu-category-title">Bowl</h1>
           <ul class="menu-items">
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Bowl1.jpg" alt="" />
                 <h4 class="menu-item-title">Curry Mushroom Chicken Bowl</h4>
@@ -449,7 +468,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/Bowl2.jpg" alt="" />
                 <h4 class="menu-item-title">Mushroom Chicken Bowl</h4>
@@ -463,7 +482,7 @@
         <article id="for2-4" class="menu-category">
           <h1 class="menu-category-title">For 2-4</h1>
           <ul class="menu-items">
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/For2-41.jpg" alt="" />
                 <h4 class="menu-item-title">Snacks N Share</h4>
@@ -472,7 +491,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/For2-42.jpg" alt="" />
                 <h4 class="menu-item-title">Savers for 4</h4>
@@ -481,7 +500,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/For2-43.jpg" alt="" />
                 <h4 class="menu-item-title">Zinger Variety Box</h4>
@@ -490,7 +509,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/For2-44.jpg" alt="" />
                 <h4 class="menu-item-title">
@@ -501,7 +520,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/For2-45.jpg" alt="" />
                 <h4 class="menu-item-title">
@@ -512,7 +531,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/For2-46.jpg" alt="" />
                 <h4 class="menu-item-title">BBQ Cheese Zinger Variety Box</h4>
@@ -521,7 +540,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/For2-47.jpg" alt="" />
                 <h4 class="menu-item-title">Variety Feast</h4>
@@ -530,7 +549,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/For2-48.jpg" alt="" />
                 <h4 class="menu-item-title">5 pcs Buddy Meal</h4>
@@ -539,7 +558,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/For2-49.jpg" alt="" />
                 <h4 class="menu-item-title">4pcs Buddy Meal</h4>
@@ -548,7 +567,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/For2-410.jpg" alt="" />
                 <h4 class="menu-item-title">8 pcs Chicken Bucket</h4>
@@ -562,7 +581,7 @@
         <article id="for5" class="menu-category">
           <h1 class="menu-category-title">For 5</h1>
           <ul class="menu-items">
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/For51.jpg" alt="" />
                 <h4 class="menu-item-title">Mega Feast</h4>
@@ -571,7 +590,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/For52.jpg" alt="" />
                 <h4 class="menu-item-title">XXL Feast</h4>
@@ -580,7 +599,7 @@
                 <button class="menu-item-add">Add To Cart</button>
               </a>
             </li>
-            <li class="menu-item" onClick="displayItem(this)">
+            <li class="menu-item" onClick="displayItem(this);hideCart()">
               <a href="#display-item" class="menu-item-display">
                 <img src="assets/images/For53.jpg" alt="" />
                 <h4 class="menu-item-title">10 pcs Chicken Bucket</h4>

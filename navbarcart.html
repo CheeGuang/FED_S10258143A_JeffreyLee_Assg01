@@ -6,11 +6,15 @@
     <li><a href="#" class="nav-option">About KFC</a></li>
     <li><a href="#" class="nav-option">Policies</a></li>
   </ul>
-  <span id="nav-summary">
-    <div id="nav-summary-basket"><h4 id="nav-summary-basket-count">0</h4></div>
-    <h4 id="nav-summary-basket-price">$10.45</h4>
-  </span>
-  <a href="checkout.html"
-    ><button id="nav-checkout"><h4>Checkout</h4></button></a
+  <button id="showButton" onClick="displayCart()">
+    <span id="nav-summary">
+      <div id="nav-summary-basket">
+        <h4 id="nav-summary-basket-count">0</h4>
+      </div>
+      <h4 id="nav-summary-basket-price">$0.00</h4>
+    </span>
+  </button>
+  <a href="checkout.html">
+    <button id="nav-checkout"><h4>Checkout</h4></button></a
   >
 </nav>

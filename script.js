@@ -133,6 +133,7 @@ function updateCounter(value) {
 
 function increment() {
   countValue++;
+  console.log(countValue);
   updateCounter(countValue);
 }
 
@@ -146,7 +147,6 @@ function decrement() {
 // Load Navbar with Checkout upon clicking "Add to Cart"
 var path = window.location.pathname;
 var page = path.split("/").pop();
-console.log(page === "menu.html");
 if (page === "checkout.html") {
   loadCartNavBar();
   setTimeout(() => {
@@ -174,14 +174,12 @@ function updateCartCounter() {
     }
     localStorageCartPrice = JSON.parse(localStorage.getItem("price"));
     for (i = 0; i < localStorageCart.length; i++) {
-      localStorageCartPrice +=
-        localStorageCart[i]["quantity"] * localStorageCart[i]["price"];
+      localStorageCartPrice += localStorageCart[i]["totalPrice"];
     }
   } catch {
     localStorageCartCounter = 0;
   }
   // Update Cart Item Count
-  // localStorageCartCounter += countValue;
   document.getElementById("nav-summary-basket-count").innerText =
     localStorageCartCounter;
   // Update Cart Item Price
@@ -254,21 +252,13 @@ function addItemToLocalStorage() {
     ["quantity"]: parseFloat(
       document.getElementById("display-item-footer-counter-number").innerText
     ),
-    ["price"]: parseFloat(
+    ["price"]: parseFloat(localStorage.getItem("selectedItemPrice")),
+
+    ["totalPrice"]: parseFloat(
       document
         .getElementById("display-item-box-header-price")
         .innerText.slice(1)
     ),
-
-    ["totalPrice"]:
-      parseFloat(
-        document.getElementById("display-item-footer-counter-number").innerText
-      ) *
-      parseFloat(
-        document
-          .getElementById("display-item-box-header-price")
-          .innerText.slice(1)
-      ),
     ["imagePath"]: getImagePath(),
   };
   if (localStorage.getItem("cart") !== null) {
@@ -290,7 +280,6 @@ function addItemToLocalStorage() {
     cart.push(itemDetails);
   }
   localStorage.setItem("cart", JSON.stringify(cart));
-  console.log(cart);
 }
 
 // Get Image Path
@@ -347,7 +336,6 @@ function DisplayLocalStorageCartContent() {
   }
   // Insert the HTML content into the container element
   checkoutSummaryContents.innerHTML = htmlContent;
-  console.log(subtotal);
   document.getElementById("checkout-summary-fees-subtotal").innerText =
     "$" + parseFloat(subtotal).toFixed(2);
   document.getElementById("checkout-summary-fees-total").innerText =
@@ -356,12 +344,15 @@ function DisplayLocalStorageCartContent() {
 
 function checkoutDecrement(element) {
   let cart = [];
+  let subtotal = 0;
+  let delivery = 6;
+
   const mainParentDiv = element.parentElement.parentElement;
   const parentDiv = element.parentElement;
   const selectedTitle = mainParentDiv.querySelector("h4").innerText;
+  const itemPrice = mainParentDiv.lastElementChild;
   let selectedQuantity = parentDiv.querySelector("h2");
   let localStorageCart = JSON.parse(localStorage.getItem("cart"));
-  console.log(localStorageCart);
   for (i = 0; i < localStorageCart.length; i++) {
     let localStorageImagePath = localStorageCart[i]["imagePath"];
     let localStoragePrice = localStorageCart[i]["price"];
@@ -372,8 +363,9 @@ function checkoutDecrement(element) {
       if (localStorageQuantity !== 1) {
         localStorageQuantity--;
         localStorageTotalPrice = localStoragePrice * localStorageQuantity;
-        console.log(selectedQuantity);
         selectedQuantity.innerText = localStorageQuantity;
+        itemPrice.innerText =
+          "$" + parseFloat(localStorageTotalPrice).toFixed(2);
         // document.getElementById("display-item-box-header-price").innerText =
         //   "$" + Number(calcTotalItemPrice()).toFixed(2);
       }
@@ -385,19 +377,35 @@ function checkoutDecrement(element) {
       ["title"]: localStorageTitle,
       ["totalPrice"]: localStorageTotalPrice,
     };
+    subtotal += localStorageTotalPrice;
     cart.push(itemDetails);
   }
+  let total = subtotal + delivery;
+  if (promoIsApplied) {
+    total -= 5;
+  }
+
+  // Update Subtotal and Total
+  document.getElementById("checkout-summary-fees-subtotal").innerText =
+    "$" + parseFloat(subtotal).toFixed(2);
+  document.getElementById("checkout-summary-fees-total").innerText =
+    "$" + parseFloat(total).toFixed(2);
+
   localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCounter();
 }
 
 function checkoutIncrement(element) {
   let cart = [];
+  let subtotal = 0;
+  let delivery = 6;
+
   const mainParentDiv = element.parentElement.parentElement;
   const parentDiv = element.parentElement;
   const selectedTitle = mainParentDiv.querySelector("h4").innerText;
+  const itemPrice = mainParentDiv.lastElementChild;
   let selectedQuantity = parentDiv.querySelector("h2");
   let localStorageCart = JSON.parse(localStorage.getItem("cart"));
-  console.log(localStorageCart);
   for (i = 0; i < localStorageCart.length; i++) {
     let localStorageImagePath = localStorageCart[i]["imagePath"];
     let localStoragePrice = localStorageCart[i]["price"];
@@ -407,9 +415,8 @@ function checkoutIncrement(element) {
     if (localStorageTitle === selectedTitle) {
       localStorageQuantity++;
       localStorageTotalPrice = localStoragePrice * localStorageQuantity;
-      console.log(selectedQuantity);
       selectedQuantity.innerText = localStorageQuantity;
-      // document.getElementById("display-item-box-header-price").innerText =
+      itemPrice.innerText = "$" + parseFloat(localStorageTotalPrice).toFixed(2); // document.getElementById("display-item-box-header-price").innerText =
       //   "$" + Number(calcTotalItemPrice()).toFixed(2);
     }
     itemDetails = {
@@ -419,19 +426,162 @@ function checkoutIncrement(element) {
       ["title"]: localStorageTitle,
       ["totalPrice"]: localStorageTotalPrice,
     };
+    subtotal += localStorageTotalPrice;
     cart.push(itemDetails);
   }
+  let total = subtotal + delivery;
+  if (promoIsApplied) {
+    total -= 5;
+  }
+
+  // Update Subtotal and Total
+  document.getElementById("checkout-summary-fees-subtotal").innerText =
+    "$" + parseFloat(subtotal).toFixed(2);
+  document.getElementById("checkout-summary-fees-total").innerText =
+    "$" + parseFloat(total).toFixed(2);
+
   localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCounter();
 }
 
-function checkoutUpdateCounter(value) {
-  document.getElementById("display-item-footer-counter-number").innerText =
-    value;
-  document.getElementById("display-item-box-header-price").innerText =
-    "$" + Number(calcTotalItemPrice()).toFixed(2);
+// Promo Code Logic ------------------------------------------------------
+let promoIsApplied = false;
+function applyPromo() {
+  if (!promoIsApplied) {
+    // Insert Discount Element as Last Child
+    // Create a new span element for the discount
+    const discountSpan = document.createElement("span");
+    discountSpan.classList.add("checkout-summary-fees");
+    discountSpan.innerHTML = `<h4>Discount</h4><h4 id="checkout-summary-fees-discount">-$5.00</h4>`;
+
+    // Get the parent element
+    const parentElement = document.getElementById(
+      "checkout-summary-feedetails"
+    );
+
+    // Get the element after which the new element needs to be inserted
+    const deliveryElement = document.getElementById(
+      "checkout-summary-fees-delivery"
+    );
+
+    // Insert the new discount element after the 'deliveryElement'
+    parentElement.insertBefore(
+      discountSpan,
+      deliveryElement.nextElementSibling
+    );
+
+    // Inserting Discount Element Above Total Price
+    if (parentElement && discountSpan) {
+      // Check if the element has a previous sibling
+      if (discountSpan.previousElementSibling) {
+        // Move the element one position higher by inserting it before its previous sibling
+        parentElement.insertBefore(
+          discountSpan,
+          discountSpan.previousElementSibling
+        );
+      } else {
+        console.log("Element is already at the top");
+      }
+    } else {
+      console.error("Parent container or element to move not found");
+    }
+
+    // Updating Total Price
+    const totalElement = document.getElementById("checkout-summary-fees-total");
+    totalElement.innerText =
+      "$" + Number(parseFloat(totalElement.innerText.slice(1)) - 5).toFixed(2);
+    promoIsApplied = true;
+  }
 }
 
 // Clear Local Storage of cart
 function clearCartLocalStorage() {
   localStorage.removeItem("cart");
+}
+
+// Display Cart
+function displayCart() {
+  // Get the content element
+  const content = document.getElementById("viewcart");
+  // Toggle the visibility of the content
+  if (content.className === "displayed") {
+    // content.style.display = "block";
+    // content.style.transitionTimingFunction = "ease-in";
+    content.classList.add("not-displayed");
+    content.classList.remove("displayed");
+  } else {
+    // content.style.display = "none";
+    content.classList.add("displayed");
+    content.classList.remove("not-displayed");
+  }
+  DisplayLocalStorageCartContentToMenu();
+}
+
+// Hide Cart Menu
+function hideCart() {
+  // Get the content element
+  const content = document.getElementById("viewcart");
+  // Toggle the visibility of the content
+  if (content.className === "displayed") {
+    // content.style.display = "block";
+    // content.style.transitionTimingFunction = "ease-in";
+    content.classList.add("not-displayed");
+    content.classList.remove("displayed");
+  }
+}
+
+// Display Local Storage Cart to Menu Cart
+// Display Items from Local Storage onto Checkout Page
+const viewCartElement = document.getElementById("viewcart-contents");
+function DisplayLocalStorageCartContentToMenu() {
+  let localStorageCart = JSON.parse(localStorage.getItem("cart"));
+  let subtotal = 0;
+  // let delivery = 6;
+
+  // Loop through Local Storage Cart and add each iteration to htmlContent
+  for (i = 0; i < localStorageCart.length; i++) {
+    let imagePath = localStorageCart[i]["imagePath"];
+    let title = localStorageCart[i]["title"];
+    let quantity = localStorageCart[i]["quantity"];
+    let totalPrice = localStorageCart[i]["totalPrice"];
+    // htmlContent += `
+    // <div class="checkout-summary-content">
+    //   <img src="${imagePath}" alt="${title}" />
+    //   <span class="checkout-summary-content-details">
+    //     <h4>${title}</h4>
+    //     <ul>
+    //       <li>1x Example Item 1</li>
+    //       <li>2x Example Item 2</li>
+    //       <li>1x Example Item 3</li>
+    //     </ul>
+    //   </span>
+    //   <span id="checkout-summary-content-counter">
+    //     <button onClick="checkoutDecrement(this)">-</button>
+    //     <h2 id="display-item-footer-counter-number">${quantity}</h2>
+    //     <button onClick="checkoutIncrement(this)">+</button>
+    //   </span>
+    //   <h4>${"$" + parseFloat(totalPrice).toFixed(2)}</h4>
+    // </div>`;
+    htmlContent += `
+    <div class="checkout-summary-content">
+      <img src="${imagePath}" alt="${title}" />
+      <span class="checkout-summary-content-details">
+        <h4>${title}</h4>
+        <ul>
+          <li>1x Example Item 1</li>
+          <li>2x Example Item 2</li>
+          <li>1x Example Item 3</li>
+        </ul>
+      </span>
+      <h4>${"$" + parseFloat(totalPrice).toFixed(2)}</h4>
+    </div>`;
+
+    subtotal += totalPrice;
+  }
+  // Insert the HTML content into the container element
+  viewCartElement.innerHTML = htmlContent;
+  // document.getElementById("checkout-summary-fees-subtotal").innerText =
+  //   "$" + parseFloat(subtotal).toFixed(2);
+  // document.getElementById("checkout-summary-fees-total").innerText =
+  //   "$" + parseFloat(subtotal + delivery).toFixed(2);
 }

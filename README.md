@@ -86,3 +86,4 @@ As a user, I want to see a consistent use of color and design in the KFC Website
 - [KFC Global](https://global.kfc.com/asset-library/)
 - [Cart Background Image](https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/red_shoppictbasket_1484336512-1.png)
 - [Google Fonts](https://fonts.google.com/)
+- [w3resource](https://www.w3resource.com/html-css-exercise/html-css-practical-exercises/html-css-practical-exercise-15.php)
