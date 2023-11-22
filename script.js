@@ -336,9 +336,9 @@ function DisplayLocalStorageCartContent() {
         </ul>
       </span>
       <span id="checkout-summary-content-counter">
-        <button>+</button>
-        <h2>${quantity}</h2>
-        <button>-</button>
+        <button onClick="checkoutDecrement(this)">-</button>
+        <h2 id="display-item-footer-counter-number">${quantity}</h2>
+        <button onClick="checkoutIncrement(this)">+</button>
       </span>
       <h4>${"$" + parseFloat(totalPrice).toFixed(2)}</h4>
     </div>`;
@@ -352,6 +352,83 @@ function DisplayLocalStorageCartContent() {
     "$" + parseFloat(subtotal).toFixed(2);
   document.getElementById("checkout-summary-fees-total").innerText =
     "$" + parseFloat(subtotal + delivery).toFixed(2);
+}
+
+function checkoutDecrement(element) {
+  let cart = [];
+  const mainParentDiv = element.parentElement.parentElement;
+  const parentDiv = element.parentElement;
+  const selectedTitle = mainParentDiv.querySelector("h4").innerText;
+  let selectedQuantity = parentDiv.querySelector("h2");
+  let localStorageCart = JSON.parse(localStorage.getItem("cart"));
+  console.log(localStorageCart);
+  for (i = 0; i < localStorageCart.length; i++) {
+    let localStorageImagePath = localStorageCart[i]["imagePath"];
+    let localStoragePrice = localStorageCart[i]["price"];
+    let localStorageQuantity = parseInt(localStorageCart[i]["quantity"]);
+    let localStorageTitle = localStorageCart[i]["title"];
+    let localStorageTotalPrice = localStorageCart[i]["totalPrice"];
+    if (localStorageTitle === selectedTitle) {
+      if (localStorageQuantity !== 1) {
+        localStorageQuantity--;
+        localStorageTotalPrice = localStoragePrice * localStorageQuantity;
+        console.log(selectedQuantity);
+        selectedQuantity.innerText = localStorageQuantity;
+        // document.getElementById("display-item-box-header-price").innerText =
+        //   "$" + Number(calcTotalItemPrice()).toFixed(2);
+      }
+    }
+    itemDetails = {
+      ["imagePath"]: localStorageImagePath,
+      ["price"]: localStoragePrice,
+      ["quantity"]: localStorageQuantity,
+      ["title"]: localStorageTitle,
+      ["totalPrice"]: localStorageTotalPrice,
+    };
+    cart.push(itemDetails);
+  }
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function checkoutIncrement(element) {
+  let cart = [];
+  const mainParentDiv = element.parentElement.parentElement;
+  const parentDiv = element.parentElement;
+  const selectedTitle = mainParentDiv.querySelector("h4").innerText;
+  let selectedQuantity = parentDiv.querySelector("h2");
+  let localStorageCart = JSON.parse(localStorage.getItem("cart"));
+  console.log(localStorageCart);
+  for (i = 0; i < localStorageCart.length; i++) {
+    let localStorageImagePath = localStorageCart[i]["imagePath"];
+    let localStoragePrice = localStorageCart[i]["price"];
+    let localStorageQuantity = parseInt(localStorageCart[i]["quantity"]);
+    let localStorageTitle = localStorageCart[i]["title"];
+    let localStorageTotalPrice = localStorageCart[i]["totalPrice"];
+    if (localStorageTitle === selectedTitle) {
+      localStorageQuantity++;
+      localStorageTotalPrice = localStoragePrice * localStorageQuantity;
+      console.log(selectedQuantity);
+      selectedQuantity.innerText = localStorageQuantity;
+      // document.getElementById("display-item-box-header-price").innerText =
+      //   "$" + Number(calcTotalItemPrice()).toFixed(2);
+    }
+    itemDetails = {
+      ["imagePath"]: localStorageImagePath,
+      ["price"]: localStoragePrice,
+      ["quantity"]: localStorageQuantity,
+      ["title"]: localStorageTitle,
+      ["totalPrice"]: localStorageTotalPrice,
+    };
+    cart.push(itemDetails);
+  }
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function checkoutUpdateCounter(value) {
+  document.getElementById("display-item-footer-counter-number").innerText =
+    value;
+  document.getElementById("display-item-box-header-price").innerText =
+    "$" + Number(calcTotalItemPrice()).toFixed(2);
 }
 
 // Clear Local Storage of cart
