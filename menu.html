@@ -25,9 +25,25 @@
       <div id="navbar-container"></div>
     </header>
     <div id="viewcart" class="not-displayed">
-      <!-- Content that will appear on click -->
-      <h2>Cart</h2>
-      <article id="viewcart-contents"></article>
+      <div id="viewcart-contianer">
+        <!-- Content that will appear on click -->
+        <h2 id="viewcart-title">Cart</h2>
+        <article id="viewcart-contents"><h2>Cart Is Empty</h2></article>
+        <div id="viewcart-fee-detail">
+          <span class="viewcart-fees">
+            <h4>Subtotal</h4>
+            <h4 id="viewcart-fees-subtotal">$0.00</h4>
+          </span>
+          <span class="viewcart-fees">
+            <h4>Delivery</h4>
+            <h4 id="viewcart-fees-delivery">$6.00</h4>
+          </span>
+          <span class="viewcart-fees">
+            <h4>Total</h4>
+            <h4 id="viewcart-fees-total">$0.00</h4>
+          </span>
+        </div>
+      </div>
     </div>
     <section id="menu">
       <nav id="menu-nav">

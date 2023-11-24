@@ -292,6 +292,7 @@ a:active {
   border-radius: 5vh 0 0 5vh;
   justify-content: start;
   padding: 5vh;
+  padding-top: 0;
   flex-direction: column;
   overflow-y: scroll;
 }
@@ -302,6 +303,19 @@ a:active {
 }
 
 /* Cart Style */
+#viewcart-contianer {
+  position: relative;
+}
+
+#viewcart-title {
+  position: sticky;
+  top: -5vh;
+  height: 15vh;
+  background-color: #faf5f2;
+  padding-top: 10vh;
+  box-sizing: border-box;
+}
+
 .cart-content {
   display: flex;
   flex-direction: row;
@@ -352,4 +366,21 @@ a:active {
   margin: 0;
   width: 3vw;
   text-align: center;
+}
+
+#viewcart-fee-detail {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 35vw;
+  height: 13vh;
+  bottom: -7vh;
+  background-color: #faf5f2;
+  padding: 2vh 0;
+}
+
+.viewcart-fees {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 0.9em;
 }

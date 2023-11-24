@@ -49,7 +49,8 @@
 #checkout-summary-content-counter {
   display: flex;
   flex-direction: row;
-  width: 20%;
+  justify-content: space-between;
+  width: 12vw;
   margin-right: 2vw;
 }
 

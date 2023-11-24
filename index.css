@@ -181,7 +181,7 @@
   margin-bottom: 0.5em;
   border-radius: 2vh;
   border: none;
-  background-color: #b1b1b1;
+  background-color: #d7d7d7;
 }
 .startorder-action1-box-options input:first-child {
   width: 70%;
@@ -271,9 +271,11 @@ form {
   margin-bottom: 0.5em;
   padding: 0 10px;
   border: none;
-  background-color: #b1b1b1;
+  background-color: #d7d7d7;
 }
-
+#startorder-action2-box-address {
+  box-sizing: border-box;
+}
 #startorder-action2-box-options-submit {
   background-color: #f40027;
   border: none;

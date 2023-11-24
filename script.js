@@ -538,8 +538,9 @@ const viewCartElement = document.getElementById("viewcart-contents");
 function DisplayLocalStorageCartContentToMenu() {
   let localStorageCart = JSON.parse(localStorage.getItem("cart"));
   let subtotal = 0;
-  // let delivery = 6;
+  let delivery = 6;
 
+  htmlContent = ``;
   // Loop through Local Storage Cart and add each iteration to htmlContent
   for (i = 0; i < localStorageCart.length; i++) {
     let imagePath = localStorageCart[i]["imagePath"];
@@ -571,9 +572,9 @@ function DisplayLocalStorageCartContentToMenu() {
         <h4 class="cart-content-title">${title}</h4>
       </span>
       <span class="cart-content-counter">
-        <button class="cart-content-counter-button" onClick="checkoutDecrement(this)">-</button>
+        <button class="cart-content-counter-button" onClick="cartDecrement(this)">-</button>
         <h2 class="cart-content-counter-quantity">${quantity}</h2>
-        <button class="cart-content-counter-button" onClick="checkoutIncrement(this)">+</button>
+        <button class="cart-content-counter-button" onClick="cartIncrement(this)">+</button>
       </span>
       <h4 class="cart-content-price">${
         "$" + parseFloat(totalPrice).toFixed(2)
@@ -582,6 +583,114 @@ function DisplayLocalStorageCartContentToMenu() {
 
     subtotal += totalPrice;
   }
+  let total = subtotal + delivery;
   // Insert the HTML content into the container element
   viewCartElement.innerHTML = htmlContent;
+
+  // Update Subtotal and Total
+  document.getElementById("viewcart-fees-subtotal").innerText =
+    "$" + parseFloat(subtotal).toFixed(2);
+  document.getElementById("viewcart-fees-total").innerText =
+    "$" + parseFloat(total).toFixed(2);
+}
+
+function cartDecrement(element) {
+  let cart = [];
+  let subtotal = 0;
+  let delivery = 6;
+
+  const mainParentDiv = element.parentElement.parentElement;
+  const parentDiv = element.parentElement;
+  const selectedTitle = mainParentDiv.querySelector("h4").innerText;
+  const itemPrice = mainParentDiv.lastElementChild;
+  let selectedQuantity = parentDiv.querySelector("h2");
+  let localStorageCart = JSON.parse(localStorage.getItem("cart"));
+  for (i = 0; i < localStorageCart.length; i++) {
+    let localStorageImagePath = localStorageCart[i]["imagePath"];
+    let localStoragePrice = localStorageCart[i]["price"];
+    let localStorageQuantity = parseInt(localStorageCart[i]["quantity"]);
+    let localStorageTitle = localStorageCart[i]["title"];
+    let localStorageTotalPrice = localStorageCart[i]["totalPrice"];
+    if (localStorageTitle === selectedTitle) {
+      if (localStorageQuantity !== 1) {
+        localStorageQuantity--;
+        localStorageTotalPrice = localStoragePrice * localStorageQuantity;
+        selectedQuantity.innerText = localStorageQuantity;
+        itemPrice.innerText =
+          "$" + parseFloat(localStorageTotalPrice).toFixed(2);
+        // document.getElementById("display-item-box-header-price").innerText =
+        //   "$" + Number(calcTotalItemPrice()).toFixed(2);
+      }
+    }
+    itemDetails = {
+      ["imagePath"]: localStorageImagePath,
+      ["price"]: localStoragePrice,
+      ["quantity"]: localStorageQuantity,
+      ["title"]: localStorageTitle,
+      ["totalPrice"]: localStorageTotalPrice,
+    };
+    subtotal += localStorageTotalPrice;
+    cart.push(itemDetails);
+  }
+  let total = subtotal + delivery;
+  if (promoIsApplied) {
+    total -= 5;
+  }
+
+  // Update Subtotal and Total
+  document.getElementById("viewcart-fees-subtotal").innerText =
+    "$" + parseFloat(subtotal).toFixed(2);
+  document.getElementById("viewcart-fees-total").innerText =
+    "$" + parseFloat(total).toFixed(2);
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCounter();
+}
+function cartIncrement(element) {
+  let cart = [];
+  let subtotal = 0;
+  let delivery = 6;
+
+  const mainParentDiv = element.parentElement.parentElement;
+  const parentDiv = element.parentElement;
+  const selectedTitle = mainParentDiv.querySelector("h4").innerText;
+  const itemPrice = mainParentDiv.lastElementChild;
+  let selectedQuantity = parentDiv.querySelector("h2");
+  let localStorageCart = JSON.parse(localStorage.getItem("cart"));
+  for (i = 0; i < localStorageCart.length; i++) {
+    let localStorageImagePath = localStorageCart[i]["imagePath"];
+    let localStoragePrice = localStorageCart[i]["price"];
+    let localStorageQuantity = parseInt(localStorageCart[i]["quantity"]);
+    let localStorageTitle = localStorageCart[i]["title"];
+    let localStorageTotalPrice = localStorageCart[i]["totalPrice"];
+    if (localStorageTitle === selectedTitle) {
+      localStorageQuantity++;
+      localStorageTotalPrice = localStoragePrice * localStorageQuantity;
+      selectedQuantity.innerText = localStorageQuantity;
+      itemPrice.innerText = "$" + parseFloat(localStorageTotalPrice).toFixed(2); // document.getElementById("display-item-box-header-price").innerText =
+      //   "$" + Number(calcTotalItemPrice()).toFixed(2);
+    }
+    itemDetails = {
+      ["imagePath"]: localStorageImagePath,
+      ["price"]: localStoragePrice,
+      ["quantity"]: localStorageQuantity,
+      ["title"]: localStorageTitle,
+      ["totalPrice"]: localStorageTotalPrice,
+    };
+    subtotal += localStorageTotalPrice;
+    cart.push(itemDetails);
+  }
+  let total = subtotal + delivery;
+  if (promoIsApplied) {
+    total -= 5;
+  }
+
+  // Update Subtotal and Total
+  document.getElementById("viewcart-fees-subtotal").innerText =
+    "$" + parseFloat(subtotal).toFixed(2);
+  document.getElementById("viewcart-fees-total").innerText =
+    "$" + parseFloat(total).toFixed(2);
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCounter();
 }
