@@ -296,9 +296,7 @@ function getImagePath() {
 
 // Checkout Page Order Summary Logic --------------------------------------------------------------------
 // Get the element where you want to insert HTML content
-const checkoutSummaryContents = document.getElementById(
-  "checkout-summary-contents"
-);
+const checkoutSummaryContents = document.getElementById("cart-contents");
 
 // HTML To be added
 let htmlContent = ``;
@@ -308,7 +306,7 @@ function DisplayLocalStorageCartContent() {
   let localStorageCart = JSON.parse(localStorage.getItem("cart"));
   let subtotal = 0;
   let delivery = 6;
-
+  htmlContent = ``;
   // Loop through Local Storage Cart and add each iteration to htmlContent
   for (i = 0; i < localStorageCart.length; i++) {
     let imagePath = localStorageCart[i]["imagePath"];
@@ -316,9 +314,9 @@ function DisplayLocalStorageCartContent() {
     let quantity = localStorageCart[i]["quantity"];
     let totalPrice = localStorageCart[i]["totalPrice"];
     htmlContent += `
-    <div class="checkout-summary-content">
+    <div class="cart-content">
       <img src="${imagePath}" alt="${title}" />
-      <span class="checkout-summary-content-details">
+      <span class="cart-content-details">
         <h4>${title}</h4>
         <ul>
           <li>1x Example Item 1</li>
@@ -326,7 +324,7 @@ function DisplayLocalStorageCartContent() {
           <li>1x Example Item 3</li>
         </ul>
       </span>
-      <span id="checkout-summary-content-counter">
+      <span id="cart-content-counter">
         <button onClick="checkoutDecrement(this)">-</button>
         <h2 id="display-item-footer-counter-number">${quantity}</h2>
         <button onClick="checkoutIncrement(this)">+</button>
@@ -338,9 +336,9 @@ function DisplayLocalStorageCartContent() {
   }
   // Insert the HTML content into the container element
   checkoutSummaryContents.innerHTML = htmlContent;
-  document.getElementById("checkout-summary-fees-subtotal").innerText =
+  document.getElementById("cart-fees-subtotal").innerText =
     "$" + parseFloat(subtotal).toFixed(2);
-  document.getElementById("checkout-summary-fees-total").innerText =
+  document.getElementById("cart-fees-total").innerText =
     "$" + parseFloat(subtotal + delivery).toFixed(2);
 }
 
@@ -388,9 +386,9 @@ function checkoutDecrement(element) {
   }
 
   // Update Subtotal and Total
-  document.getElementById("checkout-summary-fees-subtotal").innerText =
+  document.getElementById("cart-fees-subtotal").innerText =
     "$" + parseFloat(subtotal).toFixed(2);
-  document.getElementById("checkout-summary-fees-total").innerText =
+  document.getElementById("cart-fees-total").innerText =
     "$" + parseFloat(total).toFixed(2);
 
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -437,9 +435,9 @@ function checkoutIncrement(element) {
   }
 
   // Update Subtotal and Total
-  document.getElementById("checkout-summary-fees-subtotal").innerText =
+  document.getElementById("cart-fees-subtotal").innerText =
     "$" + parseFloat(subtotal).toFixed(2);
-  document.getElementById("checkout-summary-fees-total").innerText =
+  document.getElementById("cart-fees-total").innerText =
     "$" + parseFloat(total).toFixed(2);
 
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -453,18 +451,14 @@ function applyPromo() {
     // Insert Discount Element as Last Child
     // Create a new span element for the discount
     const discountSpan = document.createElement("span");
-    discountSpan.classList.add("checkout-summary-fees");
-    discountSpan.innerHTML = `<h4>Discount</h4><h4 id="checkout-summary-fees-discount">-$5.00</h4>`;
+    discountSpan.classList.add("cart-fees");
+    discountSpan.innerHTML = `<h4>Discount</h4><h4 id="cart-fees-discount">-$5.00</h4>`;
 
     // Get the parent element
-    const parentElement = document.getElementById(
-      "checkout-summary-feedetails"
-    );
+    const parentElement = document.getElementById("cart-feedetails");
 
     // Get the element after which the new element needs to be inserted
-    const deliveryElement = document.getElementById(
-      "checkout-summary-fees-delivery"
-    );
+    const deliveryElement = document.getElementById("cart-fees-delivery");
 
     // Insert the new discount element after the 'deliveryElement'
     parentElement.insertBefore(
@@ -489,7 +483,7 @@ function applyPromo() {
     }
 
     // Updating Total Price
-    const totalElement = document.getElementById("checkout-summary-fees-total");
+    const totalElement = document.getElementById("cart-fees-total");
     totalElement.innerText =
       "$" + Number(parseFloat(totalElement.innerText.slice(1)) - 5).toFixed(2);
     promoIsApplied = true;
@@ -539,7 +533,7 @@ function DisplayLocalStorageCartContentToMenu() {
   let localStorageCart = JSON.parse(localStorage.getItem("cart"));
   let subtotal = 0;
   // let delivery = 6;
-
+  htmlContent = ``;
   // Loop through Local Storage Cart and add each iteration to htmlContent
   for (i = 0; i < localStorageCart.length; i++) {
     let imagePath = localStorageCart[i]["imagePath"];
@@ -547,9 +541,9 @@ function DisplayLocalStorageCartContentToMenu() {
     let quantity = localStorageCart[i]["quantity"];
     let totalPrice = localStorageCart[i]["totalPrice"];
     // htmlContent += `
-    // <div class="checkout-summary-content">
+    // <div class="cart-content">
     //   <img src="${imagePath}" alt="${title}" />
-    //   <span class="checkout-summary-content-details">
+    //   <span class="cart-content-details">
     //     <h4>${title}</h4>
     //     <ul>
     //       <li>1x Example Item 1</li>
@@ -557,7 +551,7 @@ function DisplayLocalStorageCartContentToMenu() {
     //       <li>1x Example Item 3</li>
     //     </ul>
     //   </span>
-    // <span id="checkout-summary-content-counter">
+    // <span id="cart-content-counter">
     //   <button onClick="checkoutDecrement(this)">-</button>
     //   <h2 id="display-item-footer-counter-number">${quantity}</h2>
     //   <button onClick="checkoutIncrement(this)">+</button>
