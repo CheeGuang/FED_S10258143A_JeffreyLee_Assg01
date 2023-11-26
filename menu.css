@@ -476,7 +476,7 @@ p {
   }
   #menu-nav {
     height: 45vw;
-    background-color: #000000;
+    /* background-color: #000000; */
   }
   .menu-item img {
     height: 118px;
