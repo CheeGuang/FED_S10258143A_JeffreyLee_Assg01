@@ -74,23 +74,29 @@ header {
   margin-bottom: 0;
 }
 
-#showButton {
+button {
   background-color: #f3e0d6;
   border: none;
   cursor: pointer;
   border-radius: 20px;
 }
 
-#showButton {
+button,
+.menu-item-display {
   transition: transform 0.1s;
 }
-#showButton:active {
+button:active,
+.menu-item-display:active {
   transform: scale(0.95);
 }
 
+button[disabled] {
+  color: #000000;
+}
+
 /* Button hover effect */
-#showButton:hover {
-  background-color: #efdace;
+button:hover,
+.menu-item-display:hover {
   cursor: pointer;
 }
 

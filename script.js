@@ -149,18 +149,22 @@ function decrement() {
 // Load Navbar with Checkout upon clicking "Add to Cart"
 var path = window.location.pathname;
 var page = path.split("/").pop();
-if (page === "checkout.html") {
-  loadCartNavBar();
-  setTimeout(() => {
-    updateCartCounter();
-    DisplayLocalStorageCartContent();
-  }, "350");
-} else if (page === "menu.html") {
-  loadCartNavBar();
-  setTimeout(() => {
-    updateCartCounter();
-  }, "200");
-}
+setTimeout(() => {
+  if (page === "checkout.html") {
+    loadCartNavBar();
+    setTimeout(() => {
+      updateCartCounter();
+      DisplayLocalStorageCartContent();
+      document.getElementById("nav-cart").disabled = true;
+      document.getElementById("nav-checkout").disabled = true;
+    }, "100");
+  } else if (page === "menu.html") {
+    loadCartNavBar();
+    setTimeout(() => {
+      updateCartCounter();
+    }, "100");
+  }
+}, "350");
 
 let firstEnterMenu = true;
 // Update Cart Count
@@ -492,6 +496,7 @@ function applyPromo() {
     const totalElement = document.getElementById("checkout-summary-fees-total");
     totalElement.innerText =
       "$" + Number(parseFloat(totalElement.innerText.slice(1)) - 5).toFixed(2);
+    document.getElementById("checkout-promo-textbox").value = "ILOVEFED";
     promoIsApplied = true;
   }
 }
@@ -693,4 +698,36 @@ function cartIncrement(element) {
 
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCounter();
+}
+
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let slides = document.getElementsByClassName("slide");
+
+  // Hide all slides
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  // Move to the next slide
+  slideIndex++;
+
+  // Reset index if it exceeds the number of slides
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }
+
+  // Display the current slide
+  slides[slideIndex - 1].style.display = "block";
+
+  // Set timeout for the next slide
+  setTimeout(showSlides, 4000); // Change image every 2 seconds
+}
+
+// Function to change slide manually
+function changeSlide(n) {
+  slideIndex += n;
+  showSlides();
 }
