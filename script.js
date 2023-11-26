@@ -723,11 +723,30 @@ function showSlides() {
   slides[slideIndex - 1].style.display = "block";
 
   // Set timeout for the next slide
-  setTimeout(showSlides, 4000); // Change image every 2 seconds
+  setTimeout(showSlides, 4000); // Change image every 4 seconds
 }
 
 // Function to change slide manually
 function changeSlide(n) {
+  console.log(slideIndex);
+  console.log("n" + n);
   slideIndex += n;
-  showSlides();
+  console.log(slideIndex);
+  let slides = document.getElementsByClassName("slide");
+
+  // Hide all slides
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  // Reset index if it exceeds the number of slides
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  } else if (slideIndex == 0) {
+    slideIndex = slides.length - 1;
+    console.log(slideIndex);
+  }
+
+  // Display the current slide
+  slides[slideIndex - 1].style.display = "block";
 }

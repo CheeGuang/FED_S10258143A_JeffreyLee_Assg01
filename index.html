@@ -24,30 +24,33 @@
     <header>
       <div id="navbar-container"></div>
     </header>
-    <section id="advertisements" class="slideshow-container">
-      <div class="slide fade">
-        <img class="advertisement" src="assets/images/Advertisement1.jpg" />
-      </div>
 
-      <div class="slide fade">
-        <img class="advertisement" src="assets/images/Advertisement2.jpg" />
-      </div>
+    <section id="advertisements">
+      <div class="slideshow-container">
+        <div class="slide fade">
+          <img class="advertisement" src="assets/images/Advertisement1.jpg" />
+        </div>
 
-      <div class="slide fade">
-        <img class="advertisement" src="assets/images/Advertisement3.jpg" />
-      </div>
+        <div class="slide fade">
+          <img class="advertisement" src="assets/images/Advertisement2.jpg" />
+        </div>
 
-      <div class="slide fade">
-        <img class="advertisement" src="assets/images/Advertisement4.jpg" />
-      </div>
+        <div class="slide fade">
+          <img class="advertisement" src="assets/images/Advertisement3.jpg" />
+        </div>
 
-      <div class="slide fade">
-        <img class="advertisement" src="assets/images/Advertisement5.jpg" />
-      </div>
+        <div class="slide fade">
+          <img class="advertisement" src="assets/images/Advertisement4.jpg" />
+        </div>
 
-      <!-- Next and previous buttons -->
-      <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-      <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        <div class="slide fade">
+          <img class="advertisement" src="assets/images/Advertisement5.jpg" />
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+      </div>
     </section>
     <!-- <section id="advertisements">
       <img
@@ -95,23 +98,24 @@
           src="assets/images/EverydaySavers.png"
           alt="Everyday Saver Deals Advertisement Image"
         />
-        <div>
+        <div class="articles-content">
           <h2>Everyday Saver Deals</h2>
-          <p>
+          <p class="articles-text">
             Indulge in Irresistible Savings with KFC's Everyday Saver Deals!
             Grab Yours Now!
           </p>
           <button class="articles-learn">Learn More</button>
         </div>
       </article>
-      <article>
+      <article id="articles-mobile">
         <img
+          id="articles-mobile-img"
           src="assets/images/GetMobileAPp.png"
           alt="KFC Mobile App Advertisement Image"
         />
-        <div>
+        <div class="articles-contentPhone">
           <h2>Get The KFC Mobile App</h2>
-          <p>
+          <p class="articles-text">
             Experience Finger-Lickin' Convenience at Your Fingertips! Download
             the KFC Mobile App Today and Enjoy Exclusive Offers, Faster
             Ordering, and More!
@@ -124,9 +128,9 @@
           src="assets/images/AboutKFC.png"
           alt="About KFC Advertisement Image"
         />
-        <div>
+        <div class="articles-content">
           <h2>About KFC</h2>
-          <p>
+          <p class="articles-text">
             Delve into the Delicious Legacy! Explore the Heart and History
             Behind KFC. Discover More About Our Finger-Lickin' Good Journey!
           </p>

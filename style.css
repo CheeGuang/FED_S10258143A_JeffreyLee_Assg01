@@ -2,7 +2,7 @@
 header nav {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 3vw;
   align-items: center;
   padding: 3vh 8vw;
   background-color: #fff8f4;
@@ -31,7 +31,7 @@ header {
   flex-direction: row;
   font-family: "Heebo", sans-serif;
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 2vw;
   gap: 5vw;
 }
 
@@ -82,11 +82,15 @@ button {
 }
 
 button,
-.menu-item-display {
+.menu-item-display,
+.prev,
+.next {
   transition: transform 0.1s;
 }
 button:active,
-.menu-item-display:active {
+.menu-item-display:active,
+.prev:active,
+.next:active {
   transform: scale(0.95);
 }
 
@@ -169,7 +173,7 @@ body {
 /* Header Style */
 h1 {
   font-family: "Oswald", sans-serif;
-  font-size: 3em;
+  font-size: 3vw;
   margin: 0.3em;
 }
 
@@ -181,19 +185,19 @@ h2 {
 
 h3 {
   font-weight: 700;
-  font-size: 2.4em;
+  font-size: 2vw;
   margin-bottom: 2px;
   margin: 10%;
 }
 
 h4 {
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 2.3vw;
   margin-bottom: 0.5em;
 }
 
 p {
-  font-size: 1.3em;
+  font-size: 1.5vw;
   line-height: 1.2em;
   margin-top: 6px;
 }
@@ -201,7 +205,7 @@ p {
 .footer-options-option ul li a {
   color: black;
   font-weight: 400;
-  font-size: 1.2em;
+  font-size: 1.2vw;
   line-height: 2em;
   text-decoration: none;
 }

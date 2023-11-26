@@ -1,5 +1,6 @@
 /* Advertisement */
 #advertisements {
+  margin-top: 2vw;
   width: 81%;
 }
 .advertisement {
@@ -7,7 +8,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  border-radius: 60px;
+  border-radius: 4vw;
 }
 
 /* Start Ordering */
@@ -19,6 +20,7 @@
 #startorder-options {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   gap: 15px;
 }
 
@@ -29,11 +31,10 @@
   padding-right: 2%;
   background-color: #f40027;
   border: none;
-  width: 33%;
+  width: 32.7%;
   font-family: "Heebo", sans-serif;
   font-weight: 700;
-  font-size: 2em;
-  border-radius: 15px;
+  border-radius: 1vw;
 }
 .startorder-option a {
   display: flex;
@@ -45,20 +46,28 @@
 }
 
 .startorder-option img {
-  height: 60px;
+  height: 3.8vw;
 }
+
 #startorder-options button:last-child img {
-  height: 50px;
+  height: 3.4vw;
+}
+
+.startorder-option a p {
+  font-size: 2.5vw;
 }
 
 /* Articles */
 #articles {
-  margin-top: 40px;
+  margin-top: 5vw;
   margin-left: 6%;
   margin-right: 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#articles article {
+#articles > article {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -67,7 +76,8 @@
 
 #articles img {
   width: 40vw;
-  border-radius: 35px;
+  min-width: 400px;
+  border-radius: 3vw;
   margin-left: 50px;
 }
 
@@ -78,6 +88,14 @@
 #articles article:nth-child(odd) img {
   margin-left: 0px;
   margin-right: 50px;
+}
+#articles-mobile {
+  height: 60vh !important;
+}
+
+#articles-mobile img {
+  width: 30vw;
+  min-width: 300px;
 }
 
 .articles-learn {
@@ -284,6 +302,9 @@ form {
 }
 
 /* Hide all slides by default */
+.slideshow-container {
+  position: relative;
+}
 .slide {
   display: none;
 }
@@ -303,18 +324,50 @@ form {
   }
 }
 
+/* Header Style */
+h1 {
+  font-family: "Oswald", sans-serif;
+  font-size: 3vw;
+  margin: 0.3em;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 2em;
+  margin-bottom: 2px;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 2vw;
+  margin-bottom: 2px;
+  margin: 10%;
+}
+
+h4 {
+  font-weight: 700;
+  font-size: 2.3vw;
+  margin-bottom: 0.5em;
+}
+
+p {
+  font-size: 1.5vw;
+  line-height: 1.2em;
+  margin-top: 6px;
+}
+
 /* Position the previous and next buttons */
 .prev,
 .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 49%;
   width: auto;
   padding: 16px;
   margin-top: -22px;
   color: white;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 2.3vw;
 }
 
 /* Style the next button */
@@ -325,4 +378,120 @@ form {
 /* Style the previous button */
 .prev {
   left: 0;
+}
+
+@media (max-width: 1500px) {
+  /* Styles for tablets */
+  /* Adjust styles to fit smaller screens */
+  #articles article {
+    height: 30vh;
+  }
+}
+@media (max-width: 798px) {
+  /* Styles for tablets */
+  /* Adjust styles to fit smaller screens */
+  #startorder-options {
+    flex-direction: column;
+    gap: 3vw;
+  }
+  .startorder-option {
+    padding: 4% 5%;
+    background-color: #f40027;
+    border: none;
+    width: 100%;
+    font-family: "Heebo", sans-serif;
+    font-weight: 700;
+    border-radius: 2.5vw;
+  }
+  .startorder-option a p {
+    font-size: 5vw;
+  }
+
+  /* Articles */
+  #articles {
+    margin-bottom: 5vh;
+  }
+  #articles article {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 100%;
+  }
+
+  #articles img {
+    margin-top: 15vw;
+    margin-left: 0px;
+    width: 10%;
+  }
+  #articles article:nth-child(odd) > img {
+    width: 80vw;
+    margin-right: 0px;
+  }
+  #articles article:nth-child(odd) {
+    flex-direction: column;
+  }
+
+  .articles-content {
+    width: 80vw;
+    margin-top: 5vw;
+  }
+  #articles-mobile {
+    width: 80vw;
+    height: 50vh !important;
+    justify-content: space-between;
+  }
+  .articles-contentPhone {
+    /* width: 33vw; */
+    margin-top: 20vw;
+  }
+
+  #articles-mobile-img {
+    width: 56vw !important;
+    min-width: 250px !important;
+  }
+  .articles-text {
+    font-size: 3vw;
+  }
+
+  /* Actions */
+  #actions {
+    width: 110%;
+  }
+
+  /* Header Style */
+  h1 {
+    font-family: "Oswald", sans-serif;
+    font-size: 7vw;
+    margin: 0.3em;
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 2em;
+    margin-bottom: 2px;
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 2vw;
+    margin-bottom: 2px;
+    margin: 10%;
+  }
+
+  h4 {
+    font-weight: 700;
+    font-size: 2.3vw;
+    margin-bottom: 0.5em;
+  }
+
+  p {
+    font-size: 2vw;
+    line-height: 1.2em;
+    margin-top: 6px;
+  }
+}
+/* Media query for mobile devices */
+@media screen and (max-width: 480px) {
+  /* Styles for mobile devices */
+  /* Further adjustments for smaller screens */
 }
