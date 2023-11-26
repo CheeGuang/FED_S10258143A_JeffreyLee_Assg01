@@ -59,7 +59,7 @@
 
 /* Articles */
 #articles {
-  margin-top: 5vw;
+  margin-top: 10vw;
   margin-left: 6%;
   margin-right: 6%;
   display: flex;
@@ -75,8 +75,8 @@
 }
 
 #articles img {
-  width: 40vw;
   min-width: 400px;
+  width: 40vw;
   border-radius: 3vw;
   margin-left: 50px;
 }
@@ -96,6 +96,11 @@
 #articles-mobile img {
   width: 30vw;
   min-width: 300px;
+}
+
+#articles-about-image {
+  width: 60vw !important;
+  min-width: 0;
 }
 
 .articles-learn {
