@@ -24,7 +24,6 @@
     <header>
       <div id="navbar-container"></div>
     </header>
-
     <section id="advertisements">
       <div class="slideshow-container">
         <div class="slide fade">
@@ -95,6 +94,8 @@
     <section id="articles">
       <article>
         <img
+          id="articles-deals-image"
+          class="articles-bannerImage"
           src="assets/images/EverydaySavers.png"
           alt="Everyday Saver Deals Advertisement Image"
         />
@@ -126,6 +127,7 @@
       <article>
         <img
           id="articles-about-image"
+          class="articles-bannerImage"
           src="assets/images/AboutKFC.png"
           alt="About KFC Advertisement Image"
         />
@@ -181,6 +183,7 @@
           <h2>Or</h2>
           <div class="startorder-action1-box-options">
             <input
+              id="startorder-action1-box-address"
               type="text"
               placeholder="Enter Address To Search For Nearby Restaurants"
             />
@@ -196,7 +199,7 @@
     <div id="startorder-action2">
       <div id="startorder-action2-box">
         <h2 id="startorder-action2-box-header">Order For Delivery</h2>
-        <form action="menu.html">
+        <form id="startorder-action2-box-form" action="menu.html">
           <input
             type="text"
             placeholder=" Enter Address To Search For Nearby Restaurants"
@@ -282,5 +285,6 @@
 
     <!-- Link JavaScript -->
     <script src="script.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>

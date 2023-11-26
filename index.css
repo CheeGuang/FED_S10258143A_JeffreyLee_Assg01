@@ -1,3 +1,7 @@
+html {
+  overflow-x: hidden;
+}
+
 /* Advertisement */
 #advertisements {
   margin-top: 2vw;
@@ -62,6 +66,7 @@
   margin-top: 10vw;
   margin-left: 6%;
   margin-right: 6%;
+  margin-bottom: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,11 +99,12 @@
 }
 
 #articles-mobile img {
-  width: 30vw;
+  width: 0vw;
   min-width: 300px;
 }
 
-#articles-about-image {
+#articles-about-image,
+#articles-deals-image {
   width: 60vw !important;
   min-width: 0;
 }
@@ -207,7 +213,7 @@
   background-color: #d7d7d7;
 }
 .startorder-action1-box-options input:first-child {
-  width: 70%;
+  width: 65%;
   margin-right: 2%;
   height: 100%;
   padding-left: 20px;
@@ -306,6 +312,7 @@ form {
   cursor: pointer;
 }
 
+/* Advertisement SideShow */
 /* Hide all slides by default */
 .slideshow-container {
   position: relative;
@@ -386,15 +393,11 @@ p {
 }
 
 @media (max-width: 1500px) {
-  /* Styles for tablets */
-  /* Adjust styles to fit smaller screens */
   #articles article {
     height: 30vh;
   }
 }
 @media (max-width: 798px) {
-  /* Styles for tablets */
-  /* Adjust styles to fit smaller screens */
   #startorder-options {
     flex-direction: column;
     gap: 3vw;
@@ -457,7 +460,9 @@ p {
   .articles-text {
     font-size: 3vw;
   }
-
+  .articles-bannerImage {
+    min-width: 80vw !important;
+  }
   /* Actions */
   #actions {
     width: 110%;
@@ -494,9 +499,32 @@ p {
     line-height: 1.2em;
     margin-top: 6px;
   }
+
+  .startorder-action1-box-options input,
+  #startorder-action1-box-location h2 {
+    font-size: 4vw;
+  }
+
+  #startorder-action2-box-form {
+    gap: 1.5vh;
+  }
+
+  .close h4 {
+    font-size: 5vw;
+  }
 }
 /* Media query for mobile devices */
-@media screen and (max-width: 480px) {
-  /* Styles for mobile devices */
-  /* Further adjustments for smaller screens */
+@media (max-width: 480px) {
+  .articles-bannerImage {
+    min-width: 80vw !important;
+  }
+  #articles-mobile-img {
+    min-width: 40vw !important;
+  }
+  #articles-mobile {
+    height: 40vh !important;
+  }
+  h2 {
+    font-size: 6vw;
+  }
 }
