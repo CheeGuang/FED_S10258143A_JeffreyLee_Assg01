@@ -7,12 +7,12 @@
 .checkout-card {
   background-color: #ffffff;
   padding: 1.5vw;
-  border-radius: 3vh;
+  border-radius: 1.8vw;
   margin-bottom: 3vh;
 }
 
 .checkout-card hr {
-  margin: 2vh 0;
+  margin: 1.4vw 0;
 }
 
 /* Delivery Styles */
@@ -151,6 +151,7 @@
 /* Payment */
 .checkout-payment-textbox {
   display: block;
+  box-sizing: border-box;
   width: 100%;
 }
 
@@ -241,4 +242,51 @@ p {
   font-size: 1.2vw;
   line-height: 2em;
   text-decoration: none;
+}
+
+@media (max-width: 1140px) {
+  h2 {
+    font-weight: 700;
+    font-size: 2.7vw;
+    margin-bottom: 2px;
+  }
+  p {
+    font-size: 1.8vw;
+  }
+  .checkout-summary-content-details > ul > li {
+    font-size: 1.9vw;
+  }
+  #checkout-summary-content-counter {
+    display: flex;
+    align-items: center;
+    width: 13vw;
+  }
+  #checkout-summary-content-counter button {
+    width: 2.5vw;
+    height: 2.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.4vw;
+  }
+  .checkout-payment-textbox[type="text"],
+  #checkout-promo-textbox[type="text"] {
+    font-size: 2.4vw;
+  }
+  .checkout-promo-submit {
+    box-sizing: border-box;
+    height: 2.6vh;
+    width: 12vw;
+    margin-bottom: 0;
+    font-size: 2vw;
+  }
+  .checkout-promo-code-apply {
+    height: 4vw;
+  }
+  .checkout-promo-code {
+    padding: 0.9vh;
+  }
+  #checkout-proceed {
+    height: 4.7vh;
+  }
 }
