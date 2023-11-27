@@ -751,3 +751,21 @@ function changeSlide(n) {
   // Display the current slide
   slides[slideIndex - 1].style.display = "block";
 }
+
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+// Make Overlay appear
+function toggleOverlay() {
+  const overlay = document.getElementById("overlay");
+  overlay.style.display =
+    overlay.style.display === "none" || overlay.style.display === ""
+      ? "flex"
+      : "none";
+}

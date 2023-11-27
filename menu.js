@@ -19,12 +19,13 @@ function selectCategory(currentScroll) {
   // Replace this with the code you want to execute
   console.log(currentScroll);
 }
-/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
+
+const navbar = document.querySelector("#nav-horizontal");
+
+navbar.addEventListener("scroll", function () {
+  navbar.classList.remove("hide-scrollbar");
+});
+
+navbar.addEventListener("mouseleave", function () {
+  navbar.classList.add("hide-scrollbar");
+});

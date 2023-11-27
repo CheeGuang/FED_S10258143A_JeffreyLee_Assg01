@@ -29,20 +29,72 @@
     <header>
       <div id="navbar-container"></div>
     </header>
-    <!-- Start of w3Schools -->
-    <div class="topnav" id="myTopnav">
-      <a href="#home" class="active">Home</a>
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
-      </a>
+    <!-- Display Hamburger Content -->
+    <div class="overlay" id="overlay">
+      <div class="overlay-content">
+        <ul id="nav-hamburger-options">
+          <li>
+            <a href="index.html" class="nav-option hover-underline-animation"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a href="menu.html" class="nav-option hover-underline-animation"
+              >Menu</a
+            >
+          </li>
+          <li>
+            <a href="#" class="nav-option hover-underline-animation"
+              >About KFC</a
+            >
+          </li>
+          <li>
+            <a href="#" class="nav-option hover-underline-animation"
+              >Policies</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
-    <!-- End og w3Schools -->
+    <!-- Display Hamburger Content -->
+    <div id="nav-horizontal">
+      <ul>
+        <li>
+          <a class="hover-underline-animation" href="#hotdeals">Hot Deals</a>
+        </li>
+        <div class="nav-options-line"></div>
+        <li>
+          <a class="hover-underline-animation" href="#chicken">Chicken</a>
+        </li>
+        <div class="nav-options-line"></div>
+        <li><a class="hover-underline-animation" href="#boxes">Boxes</a></li>
+        <div class="nav-options-line"></div>
+        <li>
+          <a class="hover-underline-animation" href="#burger">Burger</a>
+        </li>
+        <div class="nav-options-line"></div>
+        <li><a class="hover-underline-animation" href="#wrap">Wrap</a></li>
+        <div class="nav-options-line"></div>
+        <li>
+          <a class="hover-underline-animation" href="#drinks">Drinks</a>
+        </li>
+        <div class="nav-options-line"></div>
+        <li><a class="hover-underline-animation" href="#sides">Sides</a></li>
+        <div class="nav-options-line"></div>
+        <li><a class="hover-underline-animation" href="#bowl">Bowls</a></li>
+        <div class="nav-options-line"></div>
+        <li>
+          <a class="hover-underline-animation" href="#for2-4">For 2-4</a>
+        </li>
+        <div class="nav-options-line"></div>
+        <li>
+          <a class="hover-underline-animation" href="#for5">For 5 or More</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Content that will appear on click -->
     <div id="viewcart" class="not-displayed">
       <div id="viewcart-contianer">
-        <!-- Content that will appear on click -->
         <h2 id="viewcart-title">Cart</h2>
         <article id="viewcart-contents">
           <h2>Cart Is Empty</h2>
@@ -63,6 +115,7 @@
         </div>
       </div>
     </div>
+
     <section id="menu">
       <nav id="menu-nav">
         <div><h2>Menu</h2></div>
