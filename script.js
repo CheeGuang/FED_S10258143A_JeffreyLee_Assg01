@@ -763,7 +763,7 @@ function myFunction() {
 
 // Make Overlay appear
 function toggleOverlay() {
-  const overlay = document.getElementById("overlay");
+  const overlay = document.querySelector(".overlay-content");
   overlay.style.display =
     overlay.style.display === "none" || overlay.style.display === ""
       ? "flex"
