@@ -72,6 +72,7 @@ header {
 #nav-summary div h4,
 #nav-summary h4 {
   margin-bottom: 0;
+  font-size: 1.4vw;
 }
 
 button {
@@ -309,7 +310,7 @@ a:active {
 
 @media screen and (min-width: 600px) {
   .overlay-content {
-    display: none;
+    display: none !important;
   }
 }
 /* Overlay styles */

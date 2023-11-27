@@ -302,6 +302,7 @@ a:active {
   text-align: start;
   background-color: #faf5f2;
   box-sizing: border-box;
+  transition: transform 0.25s ease-out;
 }
 
 #viewcart-title-hidden {
@@ -463,6 +464,9 @@ p {
   #menu-nav {
     height: 44vw;
   }
+  .cart-content-counter-quantity {
+    width: 6vw;
+  }
 }
 @media (max-width: 790px) {
   .menu-item {
@@ -561,11 +565,7 @@ p {
     height: 20vh;
   }
   #nav-checkout h4 {
-    font-family: "Heebo", sans-serif;
-    font-weight: 700;
     font-size: 2.2vw;
-    color: white;
-    margin-bottom: 0;
   }
 }
 @media (max-width: 690px) {
@@ -680,11 +680,7 @@ p {
     height: 20vh;
   }
   #nav-checkout h4 {
-    font-family: "Heebo", sans-serif;
-    font-weight: 700;
     font-size: 2.2vw;
-    color: white;
-    margin-bottom: 0;
   }
   #nav-cart {
     width: 22vw;
