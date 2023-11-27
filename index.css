@@ -414,7 +414,13 @@ p {
   .startorder-option a p {
     font-size: 5vw;
   }
+  .startorder-option img {
+    height: 6.8vw;
+  }
 
+  #startorder-options button:last-child img {
+    height: 6.4vw;
+  }
   /* Articles */
   #articles {
     margin-bottom: 5vh;

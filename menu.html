@@ -19,16 +19,34 @@
       href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&family=Oswald:wght@500&display=swap"
       rel="stylesheet"
     />
+    <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <header>
       <div id="navbar-container"></div>
     </header>
+    <!-- Start of w3Schools -->
+    <div class="topnav" id="myTopnav">
+      <a href="#home" class="active">Home</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+    <!-- End og w3Schools -->
     <div id="viewcart" class="not-displayed">
       <div id="viewcart-contianer">
         <!-- Content that will appear on click -->
         <h2 id="viewcart-title">Cart</h2>
-        <article id="viewcart-contents"><h2>Cart Is Empty</h2></article>
+        <article id="viewcart-contents">
+          <h2>Cart Is Empty</h2>
+        </article>
         <div id="viewcart-fee-detail">
           <span class="viewcart-fees">
             <h4>Subtotal</h4>

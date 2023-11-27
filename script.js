@@ -545,7 +545,7 @@ function DisplayLocalStorageCartContentToMenu() {
   let subtotal = 0;
   let delivery = 6;
 
-  htmlContent = ``;
+  htmlContent = `<div id="viewcart-title-hidden"></div>`;
   // Loop through Local Storage Cart and add each iteration to htmlContent
   for (i = 0; i < localStorageCart.length; i++) {
     let imagePath = localStorageCart[i]["imagePath"];
@@ -588,6 +588,7 @@ function DisplayLocalStorageCartContentToMenu() {
 
     subtotal += totalPrice;
   }
+  htmlContent += `<div id="viewcart-fee-detail-hidden"></div>`;
   let total = subtotal + delivery;
   // Insert the HTML content into the container element
   viewCartElement.innerHTML = htmlContent;
