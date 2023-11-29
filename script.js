@@ -109,8 +109,8 @@ function showLoader() {
   overlay.style.display = "flex";
   setTimeout(function () {
     overlay.style.display = "none";
-  }, 4000); // Display for 1 second
-  window.open("index.html", "_blank");
+    window.open("index.html", "_blank");
+  }, 2500); // Display for 1 second
 }
 
 // Item Display Logic -------------------------------------------------------------------------------------------

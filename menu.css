@@ -1,3 +1,11 @@
+#menu-background {
+  width: 170vh;
+  position: fixed;
+  top: 20vh;
+  z-index: -1;
+  opacity: 25%;
+}
+
 #menu {
   display: flex;
   flex-direction: row;
@@ -384,6 +392,10 @@ a:active {
 }
 
 #nav-horizontal {
+  display: none;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+#nav-horizontal::-webkit-scrollbar {
   display: none;
 }
 

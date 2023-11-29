@@ -135,7 +135,7 @@
 }
 
 .checkout-promo-code-apply {
-  padding: 2.5vw 2vw;
+  padding: 0.5vw 1vw;
   background-color: #f40027;
   color: #ffffff;
   border-radius: 999px;
@@ -149,6 +149,7 @@
 .checkout-promo-code-apply h4 {
   margin-bottom: 0;
   width: 100%;
+  font-size: 1.4vw;
 }
 
 /* Payment */
@@ -191,12 +192,10 @@
 }
 
 .loader {
-  border: 6px solid #f3f3f3;
-  border-top: 6px solid #f40027;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
+  width: 30vw;
+  height: 60vh;
+  display: block;
+  background-image: url("assets/images/KFC_Loader_Gif.gif");
 }
 
 @keyframes spin {
@@ -216,7 +215,7 @@ h1 {
 
 h2 {
   font-weight: 700;
-  font-size: 2em;
+  font-size: 1.8em;
   margin-bottom: 2px;
 }
 
@@ -265,8 +264,8 @@ p {
     width: 13vw;
   }
   #checkout-summary-content-counter button {
-    width: 4vw;
-    height: 4vw;
+    width: 3.5vw;
+    height: 3.5vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -278,7 +277,7 @@ p {
   }
   .checkout-promo-submit {
     box-sizing: border-box;
-    height: 2.6vh;
+    height: 4vw;
     width: 12vw;
     margin-bottom: 0;
     font-size: 2vw;
@@ -323,5 +322,16 @@ p {
     font-size: 2.5vw;
     line-height: 1.2em;
     margin-top: 6px;
+  }
+  .checkout-promo-code-apply {
+    padding: 2.5vw 2vw;
+    background-color: #f40027;
+    color: #ffffff;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
