@@ -419,6 +419,18 @@ h3 {
 
 h4 {
   font-weight: 700;
+  font-size: 1.4vw;
+  margin-bottom: 0.5em;
+}
+
+p {
+  font-size: 1.4vw;
+  line-height: 1.2em;
+  margin-top: 6px;
+}
+
+h4 {
+  font-weight: 700;
   font-size: 1.6vw;
   margin-bottom: 0.5em;
 }
@@ -436,7 +448,7 @@ p {
     height: 42vw;
   }
   .menu-item {
-    height: 230px;
+    height: 250px;
   }
   .menu-item img {
     height: 118px;
@@ -447,6 +459,10 @@ p {
   #display-item-buttons-add {
     height: 50px;
   }
+  .menu-item-add {
+    font-size: 1.1vw;
+    width: 42%;
+  }
 }
 @media (max-width: 1020px) {
   #menu-nav {
@@ -454,6 +470,17 @@ p {
   }
   #display-item-box {
     height: 40vw;
+  }
+  h4 {
+    font-weight: 700;
+    font-size: 2vw;
+    margin-bottom: 0.5em;
+  }
+
+  p {
+    font-size: 2vw;
+    line-height: 1.2em;
+    margin-top: 6px;
   }
 }
 @media (max-width: 960px) {
