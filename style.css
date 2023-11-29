@@ -244,6 +244,7 @@ a:active {
   transform-origin: bottom left;
 }
 /* Responsive Nav Bar Credits to W3Schools */
+
 .topnav > ul > li > a:hover {
   background-color: #ddd;
   color: black;
@@ -339,4 +340,33 @@ a:active {
   gap: 2vh;
   display: flex;
   font-size: 4vw;
+}
+
+@media (max-width: 790px) {
+  #nav-checkout h4,
+  #nav-cart h4 {
+    font-size: 1.2em !important;
+  }
+  #nav-cart {
+    padding: 0.5vh 1.8vh;
+    border-radius: 1000px;
+  }
+}
+@media (max-width: 600px) {
+  #nav-checkout h4 {
+    font-size: 2.2vw;
+  }
+  #nav-summary {
+    width: 100%;
+  }
+  #nav-summary h4 {
+    font-size: 3vw;
+  }
+  #nav-checkout {
+    padding: 1.4vw 2.6vw;
+    font-size: 10vh;
+  }
+  #nav-checkout h4 {
+    font-size: 1.9vh !important;
+  }
 }

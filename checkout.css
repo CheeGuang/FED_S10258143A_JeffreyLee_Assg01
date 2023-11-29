@@ -135,17 +135,20 @@
 }
 
 .checkout-promo-code-apply {
-  height: 7vh;
-  width: 7vw;
+  padding: 2.5vw 2vw;
   background-color: #f40027;
   color: #ffffff;
   border-radius: 999px;
   border: none;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .checkout-promo-code-apply h4 {
   margin-bottom: 0;
+  width: 100%;
 }
 
 /* Payment */
@@ -288,5 +291,13 @@ p {
   }
   #checkout-proceed {
     height: 4.7vh;
+  }
+}
+
+@media (max-width: 700px) {
+  #checkout {
+    width: 80vw;
+    margin-bottom: 3vh;
+    padding-top: 3vh;
   }
 }
