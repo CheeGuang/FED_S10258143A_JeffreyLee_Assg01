@@ -113,6 +113,12 @@ function showLoader() {
   }, 2500); // Display for 1 second
 }
 
+// Display Loading function and load index.html
+function showAction() {
+  var overlay = document.getElementById("overlay");
+  overlay.style.display = "flex";
+}
+
 // Item Display Logic -------------------------------------------------------------------------------------------
 function displayItem(value) {
   getImagePathDisplayImage(value);
@@ -764,6 +770,14 @@ function myFunction() {
 // Make Overlay appear
 function toggleOverlay() {
   const overlay = document.querySelector(".overlay-content");
+  overlay.style.display =
+    overlay.style.display === "none" || overlay.style.display === ""
+      ? "flex"
+      : "none";
+}
+
+function toggleOverlayBackground() {
+  const overlay = document.querySelector(".overlay");
   overlay.style.display =
     overlay.style.display === "none" || overlay.style.display === ""
       ? "flex"

@@ -23,37 +23,51 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
   </head>
   <body>
+    <div class="splash">
+      <dotlottie-player
+        src="https://lottie.host/0ac0fba7-ad16-42ea-918a-d1e47f456dab/NWmiBOuZyf.json"
+        background="transparent"
+        speed="1"
+        style="width: 80vw; height: 300px"
+        loop
+        autoplay
+      ></dotlottie-player>
+    </div>
     <header>
       <div id="navbar-container"></div>
     </header>
-    <!-- Display Hamburger Content -->
-    <div class="overlay" id="overlay">
-      <div class="overlay-content">
-        <ul id="nav-hamburger-options">
-          <li>
-            <a href="index.html" class="nav-option hover-underline-animation"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a href="menu.html" class="nav-option hover-underline-animation"
-              >Menu</a
-            >
-          </li>
-          <li>
-            <a href="#" class="nav-option hover-underline-animation"
-              >About KFC</a
-            >
-          </li>
-          <li>
-            <a href="#" class="nav-option hover-underline-animation"
-              >Policies</a
-            >
-          </li>
-        </ul>
-      </div>
+    <!-- Page Background -->
+    <img
+      id="page-background"
+      src="assets/images/page-background.svg"
+      alt="page-background"
+    />
+
+    <div class="overlay-content">
+      <ul id="nav-hamburger-options">
+        <li>
+          <a href="index.html" class="nav-option hover-underline-animation"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a href="menu.html" class="nav-option hover-underline-animation"
+            >Menu</a
+          >
+        </li>
+        <li>
+          <a href="#" class="nav-option hover-underline-animation">About KFC</a>
+        </li>
+        <li>
+          <a href="#" class="nav-option hover-underline-animation">Policies</a>
+        </li>
+      </ul>
     </div>
     <section id="advertisements">
       <div class="slideshow-container">
@@ -96,7 +110,7 @@
           <a
             href="#startorder-action1"
             id="startorder-option-dinein"
-            onClick="action1_insert_name(this.id)"
+            onClick="action1_insert_name(this.id), showAction()"
           >
             <p>DINE IN</p>
             <img src="assets/images/SpoonFork.png" alt="Dine In Icon" />
@@ -107,7 +121,7 @@
           <a
             href="#startorder-action1"
             id="startorder-option-takeaway"
-            onClick="action1_insert_name(this.id)"
+            onClick="action1_insert_name(this.id), showAction()"
           >
             <p>TAKEAWAY</p>
             <img src="assets/images/Shoppingbagfinal.png" alt="Takeaway Icon" />
@@ -115,7 +129,7 @@
         </button>
 
         <button class="startorder-option">
-          <a href="#startorder-action2">
+          <a href="#startorder-action2" onClick="showAction()">
             <p>DELIVERY</p>
             <img src="assets/images/Delivery.png" alt="Delivery Icon" />
           </a>
@@ -199,9 +213,10 @@
       </button>
     </section>
     <footer id="footer"></footer>
+    <!-- Display Hamburger Content -->
+    <div class="overlay" id="overlay">
+      <!-- Display Start Order 1 HTML -->
 
-    <!-- Display Start Order 1 HTML -->
-    <div class="overlay">
       <div id="startorder-action1">
         <div id="startorder-action1-box">
           <h2 id="startorder-action1-box-header">Order For %OrderType%</h2>
@@ -223,7 +238,9 @@
             </div>
           </form>
 
-          <a href="#" class="close"><h4>Back</h4></a>
+          <a href="#" class="close" onclick="toggleOverlayBackground()"
+            ><h4>Back</h4></a
+          >
         </div>
       </div>
     </div>
@@ -312,7 +329,9 @@
           />
         </form>
 
-        <a href="#" class="close"><h4>Back</h4></a>
+        <a href="#" class="close" onClick="toggleOverlayBackground()"
+          ><h4>Back</h4></a
+        >
       </div>
     </div>
 

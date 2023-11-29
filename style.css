@@ -159,6 +159,15 @@ footer {
   width: 2.5vw;
 }
 
+/* Page Backgtound */
+#page-background {
+  width: 170vh;
+  position: fixed;
+  top: 20vh;
+  z-index: -1;
+  opacity: 25%;
+}
+
 /* Start of Website Style */
 html {
   background-color: #faf5f2;
@@ -342,6 +351,19 @@ a:active {
   font-size: 4vw;
 }
 
+/* CSS styles for the loading animation */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
 @media (max-width: 790px) {
   #nav-checkout h4,
   #nav-cart h4 {
@@ -368,5 +390,8 @@ a:active {
   }
   #nav-checkout h4 {
     font-size: 1.9vh !important;
+  }
+  footer {
+    display: none;
   }
 }
