@@ -117,8 +117,24 @@ console.log(itemPriceTitle);
 function displayFiltered() {
   let results = getFilters();
   clearMenuListing();
-  displayMenuListing(results);
-  console.log(results);
+  console.log(results.length);
+  console.log(results == []);
+  if (results.length == 0) {
+    displayMenuListing([
+      "hotdeals",
+      "chicken",
+      "boxes",
+      "burger",
+      "wrap",
+      "drinks",
+      "sides",
+      "bowl",
+      "for2-4",
+      "for5",
+    ]);
+  } else {
+    displayMenuListing(results);
+  }
 }
 function getFilters(event) {
   let results = [];

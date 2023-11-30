@@ -432,8 +432,13 @@ function checkoutDecrement(element) {
 }
 
 function checkoutDecrementDisplayCart(element) {
+  let innitCart = JSON.parse(localStorage.getItem("cart").length);
   checkoutDecrement(element);
-  location.reload();
+  let finalCart = JSON.parse(localStorage.getItem("cart").length);
+
+  if (innitCart != finalCart) {
+    location.reload();
+  }
 }
 
 function checkoutIncrement(element) {
