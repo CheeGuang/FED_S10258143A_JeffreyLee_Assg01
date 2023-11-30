@@ -690,7 +690,7 @@ p {
   }
   .menu-item {
     width: 48%;
-    height: 32vh;
+    height: 250px !important;
     margin-bottom: 2.5vh;
   }
   .menu-item-display img {
@@ -814,19 +814,30 @@ p {
 
 @media (max-width: 570px) {
   #display-item-box {
+    height: 50vh;
+  }
+  #display-item-buttons-add {
+    height: 6vh;
+  }
+  .menu-item {
+    height: 42vw !important;
+  }
+}
+@media (max-width: 550px) {
+  #display-item-box {
     height: 60vh;
   }
   #display-item-buttons-add {
     height: 6vh;
   }
   .menu-item {
-    height: 45vw !important;
+    height: 43vw !important;
   }
 }
 @media (max-width: 450px) {
   .menu-item {
     width: 48%;
-    height: 23.5vh !important;
+    height: 30.5vh !important;
   }
   /* .menu-item-display {
     height: 90vh;
