@@ -867,7 +867,18 @@ p {
     margin-top: 40vw;
   }
 }
-
+@media (max-width: 440px) {
+  .menu-item {
+    width: 48%;
+    height: 24.5vh !important;
+  }
+}
+@media (max-width: 430px) {
+  .menu-item {
+    width: 48%;
+    height: 23.5vh !important;
+  }
+}
 @media (max-height: 480px) {
   #menu-nav {
     display: none;
