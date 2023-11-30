@@ -129,6 +129,10 @@ function displayItem(value) {
   getItemPrice(value);
   updateDisplayItemTitle(value);
   updateDisplayItemPrice(value);
+  // Access the body element
+  var bodyElement = document.getElementsByTagName("html")[0];
+  // Hide overflow on the body
+  bodyElement.style.overflow = "hidden";
 }
 
 // Counter Logic for Item Display
