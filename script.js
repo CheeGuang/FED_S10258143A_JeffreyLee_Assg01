@@ -19,9 +19,13 @@ function loadCartNavBar() {
 
     firstLoad = false;
   }
-  setTimeout(() => {
-    updateCartCounter();
-  }, "100");
+  try {
+    if (localStorage.getItem("cart").length !== 2) {
+      setTimeout(() => {
+        updateCartCounter();
+      }, "100");
+    }
+  } catch {}
 }
 
 // Fetch and insert the footer HTML using JavaScript
@@ -158,17 +162,25 @@ var page = path.split("/").pop();
 setTimeout(() => {
   if (page === "checkout.html") {
     loadCartNavBar();
-    setTimeout(() => {
-      updateCartCounter();
-      DisplayLocalStorageCartContent();
-      document.getElementById("nav-cart").disabled = true;
-      document.getElementById("nav-checkout").disabled = true;
-    }, "100");
+    try {
+      if (localStorage.getItem("cart").length !== 2) {
+        setTimeout(() => {
+          updateCartCounter();
+          DisplayLocalStorageCartContent();
+          document.getElementById("nav-cart").disabled = true;
+          document.getElementById("nav-checkout").disabled = true;
+        }, "100");
+      }
+    } catch {}
   } else if (page === "menu.html") {
     loadCartNavBar();
-    setTimeout(() => {
-      updateCartCounter();
-    }, "100");
+    try {
+      if (localStorage.getItem("cart").length !== 2) {
+        setTimeout(() => {
+          updateCartCounter();
+        }, "100");
+      }
+    } catch {}
   }
 }, "350");
 
@@ -337,7 +349,7 @@ function DisplayLocalStorageCartContent() {
         </ul>
       </span>
       <span id="checkout-summary-content-counter">
-        <button onClick="checkoutDecrement(this)">-</button>
+        <button onClick="checkoutDecrementDisplayCart(this)">-</button>
         <h2 id="display-item-footer-counter-number">${quantity}</h2>
         <button onClick="checkoutIncrement(this)">+</button>
       </span>
@@ -358,6 +370,7 @@ function checkoutDecrement(element) {
   let cart = [];
   let subtotal = 0;
   let delivery = 6;
+  let deletedItem = false;
 
   const mainParentDiv = element.parentElement.parentElement;
   const parentDiv = element.parentElement;
@@ -380,6 +393,9 @@ function checkoutDecrement(element) {
           "$" + parseFloat(localStorageTotalPrice).toFixed(2);
         // document.getElementById("display-item-box-header-price").innerText =
         //   "$" + Number(calcTotalItemPrice()).toFixed(2);
+      } else {
+        deletedItem = true;
+        continue;
       }
     }
     itemDetails = {
@@ -405,6 +421,15 @@ function checkoutDecrement(element) {
 
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCounter();
+  console.log(cart);
+  if (cart.length == 0) {
+    document.getElementById("nav-summary-basket-count").innerText = "0";
+  }
+}
+
+function checkoutDecrementDisplayCart(element) {
+  checkoutDecrement(element);
+  location.reload();
 }
 
 function checkoutIncrement(element) {
@@ -610,6 +635,7 @@ function cartDecrement(element) {
   let cart = [];
   let subtotal = 0;
   let delivery = 6;
+  let deletedItem = false;
 
   const mainParentDiv = element.parentElement.parentElement;
   const parentDiv = element.parentElement;
@@ -632,6 +658,9 @@ function cartDecrement(element) {
           "$" + parseFloat(localStorageTotalPrice).toFixed(2);
         // document.getElementById("display-item-box-header-price").innerText =
         //   "$" + Number(calcTotalItemPrice()).toFixed(2);
+      } else {
+        deletedItem = true;
+        continue;
       }
     }
     itemDetails = {
@@ -648,7 +677,13 @@ function cartDecrement(element) {
   if (promoIsApplied) {
     total -= 5;
   }
-
+  if (deletedItem) {
+    displayCart("menu");
+    console.log("Ho");
+    setTimeout(() => {
+      displayCart("menu");
+    }, "100");
+  }
   // Update Subtotal and Total
   document.getElementById("viewcart-fees-subtotal").innerText =
     "$" + parseFloat(subtotal).toFixed(2);
@@ -657,6 +692,10 @@ function cartDecrement(element) {
 
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCounter();
+  console.log(cart);
+  if (cart.length == 0) {
+    document.getElementById("nav-summary-basket-count").innerText = "0";
+  }
 }
 function cartIncrement(element) {
   let cart = [];

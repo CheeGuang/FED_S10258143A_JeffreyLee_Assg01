@@ -259,6 +259,11 @@ a:active {
   color: #b70828;
 }
 
+#add-cart-animation {
+  display: none;
+  position: fixed;
+  top: 20vh;
+}
 /* Display Cart */
 .not-displayed {
   opacity: 0;
@@ -291,6 +296,11 @@ a:active {
   display: block;
 }
 
+.cart-content-counter-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* Cart Style */
 #viewcart-contianer {
   position: relative;
@@ -780,9 +790,11 @@ p {
 @media (max-width: 450px) {
   .menu-item {
     width: 48%;
-    height: 25vh;
-    margin-bottom: 2.5vh;
+    height: 23.5vh !important;
   }
+  /* .menu-item-display {
+    height: 90vh;
+  } */
   .menu-item-display img {
     height: 100px;
   }

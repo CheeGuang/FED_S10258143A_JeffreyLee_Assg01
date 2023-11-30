@@ -29,3 +29,20 @@ navbar.addEventListener("scroll", function () {
 navbar.addEventListener("mouseleave", function () {
   navbar.classList.add("hide-scrollbar");
 });
+
+function toggleAddCartAnimation() {
+  const overlay = document.getElementById("add-cart-animation");
+  overlay.style.display =
+    overlay.style.display === "none" || overlay.style.display === ""
+      ? "flex"
+      : "none";
+}
+
+function addToCart() {
+  toggleAddCartAnimation();
+  addItemToLocalStorage();
+  loadCartNavBar();
+  setTimeout(() => {
+    toggleAddCartAnimation();
+  }, "2000");
+}

@@ -24,6 +24,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
   </head>
   <body>
     <section id="heading">
@@ -94,7 +95,7 @@
           </li>
         </ul>
       </div>
-    </div>
+    </div> 
     <!-- Content that will appear on click -->
     <div id="viewcart" class="not-displayed">
       <div id="viewcart-contianer">
@@ -742,7 +743,7 @@
             ><a href="#" onClick="calcTotalItemPrice()"
               ><button
                 id="display-item-buttons-add"
-                onClick="loadCartNavBar();addItemToLocalStorage()"
+                onClick="addToCart()"
               >
                 <h2>Add To Cart</h2>
               </button></a
@@ -752,6 +753,7 @@
         </div>
       </div>
     </div>
+    <dotlottie-player id="add-cart-animation" src="https://lottie.host/1af7f1e9-a0fb-4931-9c5a-a5c134cc557d/a0UxDhg2xR.json" background="transparent" speed="1" style="width: 800px; height: 800px;" loop autoplay></dotlottie-player>
     <footer id="footer"></footer>
 
     <!-- Link JavaScript -->

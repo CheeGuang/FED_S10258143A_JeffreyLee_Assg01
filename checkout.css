@@ -179,21 +179,20 @@
 
 /* CSS styles for the loading animation */
 
+.overlay {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
 .loader {
-  width: 30vw;
-  height: 60vh;
+  width: 390px;
+  height: 380px;
+  z-index: 4;
   display: block;
   background-image: url("assets/images/KFC_Loader_Gif.gif");
+  margin-bottom: 100px;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 /* Header Style */
 h1 {
   font-family: "Oswald", sans-serif;
