@@ -69,6 +69,7 @@
 }
 
 .menu-item {
+  min-width: 17.8vw;
   width: 30%;
   height: 280px;
   align-items: center;
@@ -395,6 +396,38 @@ a:active {
 
 #nav-horizontal {
   display: none;
+}
+/* Checkbox Style */
+/* Hide the default checkbox */
+input[type="checkbox"] {
+  -webkit-appearance: none; /* Hide default appearance on WebKit browsers */
+  -moz-appearance: none; /* Hide default appearance on Mozilla Firefox */
+  appearance: none; /* Hide default appearance */
+  width: 16px; /* Set width of the custom checkbox */
+  height: 16px; /* Set height of the custom checkbox */
+  border: 2px solid #b70828; /* Red border for the custom checkbox */
+  outline: none; /* Remove outline */
+  position: relative;
+  margin: 0;
+  margin-right: 1vw;
+}
+
+/* Tick mark when checkbox is checked */
+input[type="checkbox"]:checked {
+  background-color: #dc1232;
+}
+
+/* Pseudo-element for the tick mark */
+input[type="checkbox"]:checked::before {
+  content: "\2713"; /* Unicode for checkmark symbol */
+  display: block;
+  color: white; /* Color of the tick mark */
+  font-size: 14px; /* Adjust size of the tick mark */
+  text-align: center;
+  line-height: 16px; /* Vertically align the tick mark */
+  position: absolute;
+  top: -1px;
+  left: 1px;
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
 #nav-horizontal::-webkit-scrollbar {
