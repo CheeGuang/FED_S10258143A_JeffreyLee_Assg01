@@ -118,7 +118,7 @@ function showLoader() {
     setTimeout(() => {
       document.getElementById("checkout-checkout-animation").style.display =
         "none";
-      window.open("index.html", "_blank");
+      window.location.href = "index.html";
     }, "1500");
   }, 2500); // Display for 1 second
 }

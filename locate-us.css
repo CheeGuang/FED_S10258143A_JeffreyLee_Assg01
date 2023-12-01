@@ -1,0 +1,74 @@
+body {
+  text-align: start;
+}
+
+#locate-us-map {
+  width: 100%;
+  height: 40vw;
+  border: 0;
+}
+#locate-us-content {
+  width: 86vw;
+  margin-bottom: 10vw;
+}
+h1 {
+  display: block;
+  width: 100%;
+  text-align: start;
+  margin: 3vw;
+  margin-left: 18vw;
+}
+
+h2 {
+  font-size: 3.4vw;
+  margin-top: 8vh;
+  margin-bottom: 2.5vh;
+}
+h3 {
+  font-size: 2.5vw;
+  color: rgb(2, 165, 2);
+  margin-top: 3.5vw;
+  margin-left: 0px;
+  margin-bottom: 3.5vw;
+}
+h4 {
+  margin-top: 3.5vw;
+  margin-left: 0px;
+  margin-bottom: 1.5vw;
+  font-size: 2.3vw;
+}
+p {
+  margin-left: 2.3vw;
+  width: 100%;
+  margin-bottom: 1vw;
+}
+#locate-us-content > ul > li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 40%;
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 6vw;
+  }
+
+  h2 {
+    margin-top: 5vh;
+    margin-bottom: 0.5vh;
+    font-size: 4.4vw;
+  }
+  h3 {
+    font-size: 5.3vw;
+  }
+  h4 {
+    font-size: 4vw;
+  }
+  p {
+    font-size: 3vw;
+  }
+  #locate-us-content > ul > li {
+    width: 80%;
+  }
+}

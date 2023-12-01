@@ -25,3 +25,11 @@ function splashScreen() {
   }, "1500");
 }
 addEventListener("load", splashScreen());
+
+function openLocateUs() {
+  window.location.href = "locate-us.html";
+}
+
+function openMenu() {
+  window.location.href = "menu.html";
+}
