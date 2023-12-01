@@ -71,7 +71,7 @@ const filterElements = [
 ];
 // prettier-ignore
 const categoryNumber = {
-  "hotdeals": 0,
+  "hotDeals": 0,
   "chicken": 1,
   "boxes": 2,
   "burger": 3,
@@ -84,7 +84,7 @@ const categoryNumber = {
 };
 // prettier-ignore
 const categoryContent = {
-  "hotdeals": 9,
+  "hotDeals": 9,
   "chicken": 2,
   "boxes": 6,
   "burger": 4,
@@ -121,7 +121,7 @@ function displayFiltered() {
   console.log(results == []);
   if (results.length == 0) {
     displayMenuListing([
-      "hotdeals",
+      "hotDeals",
       "chicken",
       "boxes",
       "burger",
