@@ -97,6 +97,7 @@ let dayNameTomorrow = dayNames[dayOfWeekTomorrow];
 // Get the day name for the day after tomorrow
 let dayNameDayAfterTomorrow = dayNames[dayOfWeekDayAfterTomorrow];
 
+// Insert The following 2 days into the Delivery Time Dropdown Box
 function action2_insert_day() {
   document.getElementById("delivery-day-tmr").innerHTML = document
     .getElementById("delivery-day-tmr")
@@ -154,11 +155,13 @@ function updateCounter(value) {
     "$" + Number(calcTotalItemPrice()).toFixed(2);
 }
 
+// Increment Button Funciton for Checkout Page
 function increment() {
   countValue++;
   updateCounter(countValue);
 }
 
+// Decrement Button Funciton for Checkout Page
 function decrement() {
   if (countValue !== 1) {
     countValue--;
@@ -280,6 +283,7 @@ function calcTotalItemPrice() {
 // Add To Cart Logic (Local Storage)
 let cart = [];
 function addItemToLocalStorage() {
+  // Get Details of Item to Add to Cart
   itemDetails = {
     ["title"]: document.getElementById("display-item-box-header-title")
       .innerText,
@@ -295,18 +299,29 @@ function addItemToLocalStorage() {
     ),
     ["imagePath"]: getImagePath(),
   };
+  // Check if Cart In Local Storage is Empty
   if (localStorage.getItem("cart") !== null) {
+    // Is Cart is Not Empty
     var itemExist = false;
+
+    // Add Existing Cart In Local Storage to cart Variable
     cart = JSON.parse(localStorage.getItem("cart"));
+
     for (i of cart) {
+      // Loop Cart to check if Item to Add Exists in Cart
       if (itemDetails["title"] === i["title"]) {
+        // If Item Exists In Cart, Update Its Quantity and Total Price
         i["quantity"] =
           parseFloat(i["quantity"]) + parseFloat(itemDetails["quantity"]);
         i["totalPrice"] += itemDetails["totalPrice"];
+
+        // Update Flag
         itemExist = true;
         break;
       }
     }
+
+    //
     if (!itemExist) {
       cart.push(itemDetails);
     }
@@ -347,6 +362,8 @@ function DisplayLocalStorageCartContent() {
     let title = localStorageCart[i]["title"];
     let quantity = localStorageCart[i]["quantity"];
     let totalPrice = localStorageCart[i]["totalPrice"];
+
+    // Add HTML content for each item in Local Storage
     htmlContent += `
     <div class="checkout-summary-content">
       <img src="${imagePath}" alt="${title}" />
@@ -376,25 +393,32 @@ function DisplayLocalStorageCartContent() {
     "$" + parseFloat(subtotal + delivery).toFixed(2);
 }
 
+// Decrement Button for Menu Page
 function checkoutDecrement(element) {
   let cart = [];
   let subtotal = 0;
   let delivery = 6;
   let deletedItem = false;
 
+  // Getting Elements to get Item Details
   const mainParentDiv = element.parentElement.parentElement;
   const parentDiv = element.parentElement;
   const selectedTitle = mainParentDiv.querySelector("h4").innerText;
   const itemPrice = mainParentDiv.lastElementChild;
   let selectedQuantity = parentDiv.querySelector("h2");
   let localStorageCart = JSON.parse(localStorage.getItem("cart"));
+
+  // Loop Cart to Access Item to Decrement
   for (i = 0; i < localStorageCart.length; i++) {
     let localStorageImagePath = localStorageCart[i]["imagePath"];
     let localStoragePrice = localStorageCart[i]["price"];
     let localStorageQuantity = parseInt(localStorageCart[i]["quantity"]);
     let localStorageTitle = localStorageCart[i]["title"];
     let localStorageTotalPrice = localStorageCart[i]["totalPrice"];
+
+    // Access Item to Decrement
     if (localStorageTitle === selectedTitle) {
+      // Check whether to to decrease quantity or delete item
       if (localStorageQuantity !== 1) {
         localStorageQuantity--;
         localStorageTotalPrice = localStoragePrice * localStorageQuantity;
@@ -403,11 +427,15 @@ function checkoutDecrement(element) {
           "$" + parseFloat(localStorageTotalPrice).toFixed(2);
         // document.getElementById("display-item-box-header-price").innerText =
         //   "$" + Number(calcTotalItemPrice()).toFixed(2);
-      } else {
+      }
+
+      // If item quantity is 1, delete item from Local Storage
+      else {
         deletedItem = true;
         continue;
       }
     }
+
     itemDetails = {
       ["imagePath"]: localStorageImagePath,
       ["price"]: localStoragePrice,
@@ -418,6 +446,8 @@ function checkoutDecrement(element) {
     subtotal += localStorageTotalPrice;
     cart.push(itemDetails);
   }
+
+  // Calculating Total Price
   let total = subtotal + delivery;
   if (promoIsApplied) {
     total -= 5;
@@ -437,6 +467,7 @@ function checkoutDecrement(element) {
   }
 }
 
+// Drecrement Function for Display Cart
 function checkoutDecrementDisplayCart(element) {
   let innitCart = JSON.parse(localStorage.getItem("cart")).length;
   checkoutDecrement(element);
@@ -447,23 +478,29 @@ function checkoutDecrementDisplayCart(element) {
   }
 }
 
+// Increent Function for Checkout Page
 function checkoutIncrement(element) {
   let cart = [];
   let subtotal = 0;
   let delivery = 6;
 
+  // Getting Parent Element
   const mainParentDiv = element.parentElement.parentElement;
   const parentDiv = element.parentElement;
   const selectedTitle = mainParentDiv.querySelector("h4").innerText;
   const itemPrice = mainParentDiv.lastElementChild;
   let selectedQuantity = parentDiv.querySelector("h2");
   let localStorageCart = JSON.parse(localStorage.getItem("cart"));
+
+  // Looping Cart to access Item to Increment
   for (i = 0; i < localStorageCart.length; i++) {
     let localStorageImagePath = localStorageCart[i]["imagePath"];
     let localStoragePrice = localStorageCart[i]["price"];
     let localStorageQuantity = parseInt(localStorageCart[i]["quantity"]);
     let localStorageTitle = localStorageCart[i]["title"];
     let localStorageTotalPrice = localStorageCart[i]["totalPrice"];
+
+    // Accessing Item to Increment
     if (localStorageTitle === selectedTitle) {
       localStorageQuantity++;
       localStorageTotalPrice = localStoragePrice * localStorageQuantity;
@@ -471,6 +508,8 @@ function checkoutIncrement(element) {
       itemPrice.innerText = "$" + parseFloat(localStorageTotalPrice).toFixed(2); // document.getElementById("display-item-box-header-price").innerText =
       //   "$" + Number(calcTotalItemPrice()).toFixed(2);
     }
+
+    // Getting Item Details to Display
     itemDetails = {
       ["imagePath"]: localStorageImagePath,
       ["price"]: localStoragePrice,
@@ -478,9 +517,13 @@ function checkoutIncrement(element) {
       ["title"]: localStorageTitle,
       ["totalPrice"]: localStorageTotalPrice,
     };
+
+    // Calculating Subtotal Price
     subtotal += localStorageTotalPrice;
     cart.push(itemDetails);
   }
+
+  // Calculating Total Price
   let total = subtotal + delivery;
   if (promoIsApplied) {
     total -= 5;
@@ -598,24 +641,8 @@ function DisplayLocalStorageCartContentToMenu() {
     let title = localStorageCart[i]["title"];
     let quantity = localStorageCart[i]["quantity"];
     let totalPrice = localStorageCart[i]["totalPrice"];
-    // htmlContent += `
-    // <div class="checkout-summary-content">
-    //   <img src="${imagePath}" alt="${title}" />
-    //   <span class="checkout-summary-content-details">
-    //     <h4>${title}</h4>
-    //     <ul>
-    //       <li>1x Example Item 1</li>
-    //       <li>2x Example Item 2</li>
-    //       <li>1x Example Item 3</li>
-    //     </ul>
-    //   </span>
-    // <span id="checkout-summary-content-counter">
-    //   <button onClick="checkoutDecrement(this)">-</button>
-    //   <h2 id="display-item-footer-counter-number">${quantity}</h2>
-    //   <button onClick="checkoutIncrement(this)">+</button>
-    // </span>
-    //   <h4>${"$" + parseFloat(totalPrice).toFixed(2)}</h4>
-    // </div>`;
+
+    // HTML Content of each item listing to add
     htmlContent += `
     <div class="cart-content">
       <img class="cart-content-image" src="${imagePath}" alt="${title}" />
@@ -632,8 +659,10 @@ function DisplayLocalStorageCartContentToMenu() {
       }</h4>
     </div>`;
 
+    // Calculating Subtotal of All Listings
     subtotal += totalPrice;
   }
+  // Adding div for Formatting Purposes
   htmlContent += `<div id="viewcart-fee-detail-hidden"></div>`;
   let total = subtotal + delivery;
   // Insert the HTML content into the container element
@@ -646,38 +675,45 @@ function DisplayLocalStorageCartContentToMenu() {
     "$" + parseFloat(total).toFixed(2);
 }
 
+// Decrement Function for Menu Cart Page
 function cartDecrement(element) {
   let cart = [];
   let subtotal = 0;
   let delivery = 6;
   let deletedItem = false;
 
+  // Getting the Relevant Elements to get Item Details
   const mainParentDiv = element.parentElement.parentElement;
   const parentDiv = element.parentElement;
   const selectedTitle = mainParentDiv.querySelector("h4").innerText;
   const itemPrice = mainParentDiv.lastElementChild;
   let selectedQuantity = parentDiv.querySelector("h2");
   let localStorageCart = JSON.parse(localStorage.getItem("cart"));
+
+  // Looping Through Local Storage
   for (i = 0; i < localStorageCart.length; i++) {
     let localStorageImagePath = localStorageCart[i]["imagePath"];
     let localStoragePrice = localStorageCart[i]["price"];
     let localStorageQuantity = parseInt(localStorageCart[i]["quantity"]);
     let localStorageTitle = localStorageCart[i]["title"];
     let localStorageTotalPrice = localStorageCart[i]["totalPrice"];
+
+    // Accessing Item to Decrement
     if (localStorageTitle === selectedTitle) {
+      // Checking Whether to delete item or to Change Quantity
       if (localStorageQuantity !== 1) {
         localStorageQuantity--;
         localStorageTotalPrice = localStoragePrice * localStorageQuantity;
         selectedQuantity.innerText = localStorageQuantity;
         itemPrice.innerText =
           "$" + parseFloat(localStorageTotalPrice).toFixed(2);
-        // document.getElementById("display-item-box-header-price").innerText =
-        //   "$" + Number(calcTotalItemPrice()).toFixed(2);
       } else {
         deletedItem = true;
         continue;
       }
     }
+
+    // Getting Item Detail to display
     itemDetails = {
       ["imagePath"]: localStorageImagePath,
       ["price"]: localStoragePrice,
@@ -685,16 +721,19 @@ function cartDecrement(element) {
       ["title"]: localStorageTitle,
       ["totalPrice"]: localStorageTotalPrice,
     };
+
+    // Calculating Subtotal of all item in cart
     subtotal += localStorageTotalPrice;
     cart.push(itemDetails);
   }
+
+  // Calculating Total Price to pay
   let total = subtotal + delivery;
   if (promoIsApplied) {
     total -= 5;
   }
   if (deletedItem) {
     displayCart("menu");
-    console.log("Ho");
     setTimeout(() => {
       displayCart("menu");
     }, "100");
@@ -708,27 +747,35 @@ function cartDecrement(element) {
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCounter();
   console.log(cart);
+
+  // Setting Cart Counter to 0 if cart is empty
   if (cart.length == 0) {
     document.getElementById("nav-summary-basket-count").innerText = "0";
   }
 }
+
+// Increment Cart Function for Menu Cart
 function cartIncrement(element) {
   let cart = [];
   let subtotal = 0;
   let delivery = 6;
 
+  // Getting Relevant Elements to get Item Details
   const mainParentDiv = element.parentElement.parentElement;
   const parentDiv = element.parentElement;
   const selectedTitle = mainParentDiv.querySelector("h4").innerText;
   const itemPrice = mainParentDiv.lastElementChild;
   let selectedQuantity = parentDiv.querySelector("h2");
   let localStorageCart = JSON.parse(localStorage.getItem("cart"));
+
+  // Looping Cart to Access Item to Increment
   for (i = 0; i < localStorageCart.length; i++) {
     let localStorageImagePath = localStorageCart[i]["imagePath"];
     let localStoragePrice = localStorageCart[i]["price"];
     let localStorageQuantity = parseInt(localStorageCart[i]["quantity"]);
     let localStorageTitle = localStorageCart[i]["title"];
     let localStorageTotalPrice = localStorageCart[i]["totalPrice"];
+    // Accessing Item to Increment
     if (localStorageTitle === selectedTitle) {
       localStorageQuantity++;
       localStorageTotalPrice = localStoragePrice * localStorageQuantity;
@@ -736,6 +783,8 @@ function cartIncrement(element) {
       itemPrice.innerText = "$" + parseFloat(localStorageTotalPrice).toFixed(2); // document.getElementById("display-item-box-header-price").innerText =
       //   "$" + Number(calcTotalItemPrice()).toFixed(2);
     }
+
+    // Getting item details of incremented item
     itemDetails = {
       ["imagePath"]: localStorageImagePath,
       ["price"]: localStoragePrice,
@@ -743,9 +792,13 @@ function cartIncrement(element) {
       ["title"]: localStorageTitle,
       ["totalPrice"]: localStorageTotalPrice,
     };
+
+    // Calculating total of all items in local storage
     subtotal += localStorageTotalPrice;
     cart.push(itemDetails);
   }
+
+  // Calculating Total Price of Cart
   let total = subtotal + delivery;
   if (promoIsApplied) {
     total -= 5;
@@ -761,9 +814,11 @@ function cartIncrement(element) {
   updateCartCounter();
 }
 
+// Slide Show logic --------------------------------------------------------------------------------------
 let slideIndex = 0;
 showSlides();
 
+// Slide Show Function
 function showSlides() {
   let slides = document.getElementsByClassName("slide");
 
@@ -830,6 +885,7 @@ function toggleOverlay() {
       : "none";
 }
 
+// Turn off or on Overlay Background
 function toggleOverlayBackground() {
   const overlay = document.querySelector(".overlay");
   overlay.style.display =
