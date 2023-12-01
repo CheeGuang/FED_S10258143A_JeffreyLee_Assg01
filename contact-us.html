@@ -121,7 +121,7 @@
         <input
           class="feedback-option"
           type="submit"
-          onClick="displaySubmitAnimation()"
+          onClick="displaySubmitAnimation();event.preventDefault()"
         />
       </form>
       <p id="error" style="display: none; color: red">

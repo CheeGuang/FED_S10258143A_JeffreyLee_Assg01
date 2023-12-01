@@ -54,16 +54,16 @@ function addToCart() {
   setTimeout(() => {
     toggleAddCartAnimation();
   }, "2000");
-  showScrollBar();
+  // showScrollBar();
 }
 
-function showScrollBar() {
-  console.log("HIHI");
-  // Access the body element
-  var bodyElement = document.getElementsByTagName("html")[0];
-  // Hide overflow on the body
-  bodyElement.style.overflow = "scroll";
-}
+// function showScrollBar() {
+//   console.log("HIHI");
+//   // Access the body element
+//   var bodyElement = document.getElementsByTagName("html")[0];
+//   // Hide overflow on the body
+//   bodyElement.style.overflow = "scroll";
+// }
 
 // Filter Feature
 const filterElements = [
