@@ -4,9 +4,13 @@
 
 Ngee Ann Polytechnic - Front End Development Assignment I
 
-### Website live at :
+### Website live at:
 
 https://cheeguang.github.io/FED_S10258143A_JeffreyLee_Assg01/
+
+### Video Walkthrough:
+
+https://www.loom.com/share/b2b5cea9697340fb994a075baf069e30?sid=c638001d-4e24-4094-a24a-d520f56197fb
 
 ## Idea For Assignment 1
 
