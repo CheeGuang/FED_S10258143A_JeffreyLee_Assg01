@@ -113,7 +113,13 @@ function showLoader() {
   overlay.style.display = "flex";
   setTimeout(function () {
     overlay.style.display = "none";
-    window.open("index.html", "_blank");
+    document.getElementById("checkout-checkout-animation").style.display =
+      "block";
+    setTimeout(() => {
+      document.getElementById("checkout-checkout-animation").style.display =
+        "none";
+      window.open("index.html", "_blank");
+    }, "1500");
   }, 2500); // Display for 1 second
 }
 
@@ -432,9 +438,9 @@ function checkoutDecrement(element) {
 }
 
 function checkoutDecrementDisplayCart(element) {
-  let innitCart = JSON.parse(localStorage.getItem("cart").length);
+  let innitCart = JSON.parse(localStorage.getItem("cart")).length;
   checkoutDecrement(element);
-  let finalCart = JSON.parse(localStorage.getItem("cart").length);
+  let finalCart = JSON.parse(localStorage.getItem("cart")).length;
 
   if (innitCart != finalCart) {
     location.reload();

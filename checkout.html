@@ -19,17 +19,55 @@
       href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&family=Oswald:wght@500&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
   </head>
   <body>
     <header>
       <div id="navbar-container"></div>
     </header>
+
     <!-- Page Background -->
     <img
       id="page-background"
       src="assets/images/page-background.svg"
       alt="page-background"
     />
+
+    <!-- Welcome Animation -->
+    <dotlottie-player
+      id="checkout-welcome-animation"
+      src="https://lottie.host/e4f7fc58-da1f-40b1-afcb-8b9577efcd54/SDUD5BheJK.json"
+      background="transparent"
+      speed="1"
+      style="width: 600px; height: 600px"
+      loop
+      autoplay
+    ></dotlottie-player>
+
+    <!-- Apply Promo Animation -->
+    <dotlottie-player
+      id="checkout-promo-animation"
+      src="https://lottie.host/aa98e3f0-9a9d-4dd4-9938-ecb1ed3c85df/sMpvnCXcYj.json"
+      background="transparent"
+      speed="1"
+      style="width: 500px; height: 500px; display: none"
+      loop
+      autoplay
+    ></dotlottie-player>
+
+    <!-- Checkout Animation -->
+    <dotlottie-player
+      id="checkout-checkout-animation"
+      src="https://lottie.host/9aedd57b-54b9-4f93-b00f-859292c1ad9f/KWpeDKnAZp.json"
+      background="transparent"
+      speed="1"
+      style="width: 300px; height: 300px; display: none"
+      loop
+      autoplay
+    ></dotlottie-player>
     <!-- Display Hamburger Content -->
     <div>
       <div class="overlay-content">
@@ -98,11 +136,13 @@
             class="checkout-promo-button"
             type="text"
             placeholder="Enter Promo Code"
+            required
           />
           <input
+            id="checkout-promo-button checkout-promo-submit"
             class="checkout-promo-button checkout-promo-submit"
             type="submit"
-            onClick="event.preventDefault()"
+            onclick="event.preventDefault(),displayPromoAnimation()"
           />
         </form>
         <div id="checkout-promo-section">
@@ -115,7 +155,10 @@
               </div>
               <h4>Valid: 1 November 2024</h4>
             </div>
-            <button class="checkout-promo-code-apply" onClick="applyPromo()">
+            <button
+              class="checkout-promo-code-apply"
+              onClick="applyPromo(),displayPromoAnimation()"
+            >
               <h4>Apply</h4>
             </button>
           </span>
@@ -184,5 +227,6 @@
     </div>
     <!-- Link JavaScript -->
     <script src="script.js"></script>
+    <script src="checkout.js  "></script>
   </body>
 </html>

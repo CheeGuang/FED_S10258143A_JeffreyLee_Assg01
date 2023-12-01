@@ -20,6 +20,15 @@
 //   console.log(currentScroll);
 // }
 
+// Welcome Animation
+document.addEventListener("load", hideWelcomeAnimation());
+
+function hideWelcomeAnimation() {
+  setTimeout(() => {
+    document.getElementById("menu-welcome-animation").style.display = "none";
+  }, "2500");
+}
+
 const navbar = document.querySelector("#nav-horizontal");
 
 navbar.addEventListener("scroll", function () {

@@ -1,3 +1,25 @@
+/* Welcome Animation */
+#checkout-welcome-animation {
+  position: fixed;
+  top: 10vh;
+  left: auto;
+  z-index: 3;
+}
+/* Promo Animation */
+#checkout-promo-animation {
+  position: fixed;
+  top: 20vh;
+  left: auto;
+  z-index: 3;
+}
+/* Checkout Animation */
+#checkout-checkout-animation {
+  position: fixed;
+  top: 20vh;
+  left: auto;
+  z-index: 3;
+}
+
 #checkout {
   width: 70vw;
   margin-bottom: 3vh;

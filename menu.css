@@ -5,6 +5,12 @@
   justify-content: space-between;
 }
 
+/* Welcome Animation */
+#menu-welcome-animation {
+  position: fixed;
+  top: 5vh;
+  left: 25vw;
+}
 /* Menu Nav Bar */
 #menu-nav {
   background-color: #ffffff;
