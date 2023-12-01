@@ -18,7 +18,8 @@ The site’s users are teenagers, young adults, families, regular and potential 
 
 ### Site Owner’s goal:
 
-KFC would like to have a website that can advertise their ongoing promotions well and allow users to use their website to order dine in, takeaway or delivery.
+KFC would like to have an interactive and engaing website that allow users to use their website to order dine in, takeaway or delivery.
+Additionally, the website should advertise their ongoing promotions too.
 
 ## Design Process:
 
@@ -33,6 +34,8 @@ As a user, I want to see a consistent use of color and design in the KFC Website
 ## Features Summary:
 
 - Order KFC food on the website (Users can select what items they like from the menu and can checkout their order when they are done)
+- Add a filter feature to the Menu Page for users to view specific Menu Listings
+- Lottie Animations to Beautify Website
 - Users can apply Promo Code to receive discounts on their total bill
 - Provide links to external resources, such as the band's social media profiles
 - Micro interactions when interacting with the site eg, clicking on an interactable area to show some animation, mouse over interactions, scrolling interactions when interacting with the site.
@@ -42,6 +45,7 @@ As a user, I want to see a consistent use of color and design in the KFC Website
 - It will a navigation bar for users to easily navigate around the KFC website
 - It will include banners on the current events/promotions as a slideshow.
 - It will include a footer with content related to the company and its social media sites.
+- Action Buttons to allow users to access various features such as Menu Page, Locate Us and Contact Us
 
 ### Menu:
 
@@ -52,6 +56,11 @@ As a user, I want to see a consistent use of color and design in the KFC Website
 ### Checkout Page:
 
 - It will include a checkout page for user to enter their delivery address, change quantity of items in cart, view total price payable, apply promo code and enter billing information to make payment for their order.
+
+### Responsive Navigation Bar
+
+- Navigation Bar will display full Navigation Bar when screen is big enough.
+- Navigation Bar will display a Hamburger Menu when screen width is small.
 
 ## Technologies Used
 
@@ -73,9 +82,14 @@ As a user, I want to see a consistent use of color and design in the KFC Website
 
 ### GitHub
 
-- To push and store code on a remote repository
-- Allow version control for Assignment 1
+- To push and store code on a remote repository.
+- Allow version control for Assignment 1.
 - To deploy web application for people to view on the internet.
+
+### Lottie Animation
+
+- To add animations to indicate that an action has been completed successfully.
+- Animations help to bring the website to live.
 
 ## Credits
 
@@ -87,3 +101,5 @@ As a user, I want to see a consistent use of color and design in the KFC Website
 - [Cart Background Image](https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/red_shoppictbasket_1484336512-1.png)
 - [Google Fonts](https://fonts.google.com/)
 - [w3resource](https://www.w3resource.com/html-css-exercise/html-css-practical-exercises/html-css-practical-exercise-15.php)
+- [lottile Animation](https://lottiefiles.com/)
+- [ChatGPT](https://chat.openai.com/)
