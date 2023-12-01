@@ -791,6 +791,9 @@ p {
   header nav {
     box-shadow: none;
   }
+  #menu-welcome-animation {
+    left: 1vw;
+  }
 }
 
 /* Show scrollbar only on hover or scroll */
@@ -871,6 +874,12 @@ p {
   }
   #items {
     margin-top: 40vw;
+  }
+  #menu-welcome-animation {
+    left: auto;
+    top: 30vh;
+    width: 400px !important;
+    height: 400px !important;
   }
 }
 @media (max-width: 440px) {
