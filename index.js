@@ -33,3 +33,6 @@ function openLocateUs() {
 function openMenu() {
   window.location.href = "menu.html";
 }
+function openContactUs() {
+  window.location.href = "contact-us.html";
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="assets/images/kfcIcon.png"
+    />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="contact-us.css" />
+    <title>KFC Singapore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&family=Oswald:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Add Univerasal Nav Bar -->
+    <header>
+      <div id="navbar-container"></div>
+    </header>
+    <!-- Page Background -->
+    <img
+      id="page-background"
+      src="assets/images/page-background.svg"
+      alt="page-background"
+    />
+
+    <!-- Mobile Nav Bar -->
+    <div class="overlay-content">
+      <ul id="nav-hamburger-options">
+        <li>
+          <a href="index.html" class="nav-option hover-underline-animation"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a href="menu.html" class="nav-option hover-underline-animation"
+            >Menu</a
+          >
+        </li>
+        <li>
+          <a href="about.html" class="nav-option hover-underline-animation"
+            >About KFC</a
+          >
+        </li>
+        <li>
+          <a href="#" class="nav-option hover-underline-animation">Policies</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Page Content -->
+    <h1>Contact Us</h1>
+    <section id="contact-us-content">
+      <form action="">
+        <select id="nature" class="feedback-option">
+          <option value="" disabled selected>Nature of Feedback</option>
+          <option value="option1">Compliment</option>
+          <option value="option2">Food Quality</option>
+          <option value="option3">Food Safety or Hygiene</option>
+          <option value="option3">General Enquiry</option>
+          <option value="option3">Hospitality</option>
+          <option value="option3">Late Delivery</option>
+          <option value="option3">Missing or Wrong Food</option>
+        </select>
+        <select id="order-mode" class="feedback-option">
+          <option value="" disabled selected>Order Mode</option>
+          <option value="option1">Delivery</option>
+          <option value="option1">Dine In</option>
+          <option value="option1">Takeaway</option>
+          <option value="option1">N/A</option>
+        </select>
+        <input
+          class="feedback-option"
+          type="text"
+          placeholder="Name*"
+          required
+        />
+        <input
+          class="feedback-option"
+          type="text"
+          placeholder="Contact Number*"
+          required
+        />
+        <input
+          class="feedback-option"
+          type="text"
+          placeholder="Email Address*"
+          required
+        />
+        <input
+          class="feedback-option"
+          type="text"
+          placeholder="Message*"
+          required
+        />
+        <input class="feedback-option" type="submit" />
+      </form>
+      <p id="error" style="display: none; color: red">
+        Please select an option.
+      </p>
+    </section>
+    <!-- Add Universal Footer -->
+    <footer id="footer">
+      <h1>Get in Touch with Us</h1>
+      <p>
+        We seek your feedback to continually improve and serve you better. Your
+        feedback is important to us.
+      </p>
+      <p>
+        Please leave us a message and we will get in touch with you within 2
+        working days. For urgent assistance on your KFC Delivery orders, please
+        contact our call centre at 6222 6111.
+      </p>
+    </footer>
+    <!-- Link JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
