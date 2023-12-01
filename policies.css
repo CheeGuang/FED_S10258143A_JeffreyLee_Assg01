@@ -1,0 +1,77 @@
+body {
+  text-align: start;
+}
+
+#about-image {
+  width: 90vw;
+  border-radius: 3vw;
+  margin-bottom: 4vw;
+}
+
+#policies-content {
+  width: 86vw;
+  margin-bottom: 10vw;
+}
+h1 {
+  display: block;
+  width: 100%;
+  text-align: start;
+  margin: 3vw;
+  margin-left: 18vw;
+}
+
+h2 {
+  margin-top: 8vh;
+  margin-bottom: 2.5vh;
+  font-size: 2.4vw;
+}
+h3 {
+  font-size: 3.3vw;
+  color: #f40027;
+  margin-top: 3.5vw;
+  margin-left: 0px;
+  margin-bottom: 3.5vw;
+}
+p {
+  margin-left: 2.3vw;
+  width: 100%;
+  margin-bottom: 1.7vw;
+}
+#policies-content > ul {
+  width: 100%;
+  margin-bottom: 2vw;
+}
+#policies-content > ul > li {
+  margin-left: 5vw;
+  font-size: 1.4vw;
+  margin-bottom: 1vw;
+  list-style-type: circle; /* Change to the desired bullet style: circle, square, disc, etc. */
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 6vw;
+  }
+
+  h2 {
+    margin-top: 5vh;
+    margin-bottom: 0.5vh;
+    font-size: 4.4vw;
+  }
+  h3 {
+    font-size: 5.3vw;
+  }
+  p {
+    font-size: 3vw;
+  }
+  #policies-content > ul {
+    width: 100%;
+    margin-bottom: 2vw;
+  }
+  #policies-content > ul > li {
+    margin-left: 5vw;
+    font-size: 2.8vw;
+    margin-bottom: 1vw;
+    list-style-type: circle; /* Change to the desired bullet style: circle, square, disc, etc. */
+  }
+}
