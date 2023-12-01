@@ -259,7 +259,6 @@ a:active {
 /* Responsive Nav Bar Credits to W3Schools */
 
 .topnav > ul > li > a:hover {
-  background-color: #ddd;
   color: black;
 }
 
