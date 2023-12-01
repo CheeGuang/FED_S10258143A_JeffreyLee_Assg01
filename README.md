@@ -93,8 +93,6 @@ As a user, I want to see a consistent use of color and design in the KFC Website
 
 ## Credits
 
-### Images and Content
-
 - [KFC Singapore Website](https://www.kfc.com.sg/)
 - [KFC Australia Website](https://www.kfc.com.au/)
 - [KFC Global](https://global.kfc.com/asset-library/)
