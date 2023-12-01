@@ -19,12 +19,30 @@
       href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&family=Oswald:wght@500&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
   </head>
   <body>
     <!-- Add Univerasal Nav Bar -->
     <header>
       <div id="navbar-container"></div>
     </header>
+    <!-- Sumbit Animation -->
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+    <dotlottie-player
+      id="contact-us-submit-animation"
+      src="https://lottie.host/2e1de514-8f79-4bfa-9804-a0497a38f6d9/xFf2zIqZMC.json"
+      background="transparent"
+      speed="1"
+      style="width: 900px; height: 900px; display: none"
+      loop
+      autoplay
+    ></dotlottie-player>
     <!-- Page Background -->
     <img
       id="page-background"
@@ -100,7 +118,11 @@
           placeholder="Message*"
           required
         />
-        <input class="feedback-option" type="submit" />
+        <input
+          class="feedback-option"
+          type="submit"
+          onClick="displaySubmitAnimation()"
+        />
       </form>
       <p id="error" style="display: none; color: red">
         Please select an option.
@@ -121,5 +143,6 @@
     </footer>
     <!-- Link JavaScript -->
     <script src="script.js"></script>
+    <script src="contact-us.js"></script>
   </body>
 </html>

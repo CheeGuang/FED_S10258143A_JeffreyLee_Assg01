@@ -1,3 +1,11 @@
+/* Welcome Animation */
+#contact-us-submit-animation {
+  position: fixed;
+  top: -10vh;
+  left: auto;
+  z-index: 3;
+}
+
 body {
   text-align: start;
 }
@@ -56,6 +64,12 @@ p {
 }
 
 @media screen and (max-width: 600px) {
+  /* Welcome Animation */
+  #contact-us-submit-animation {
+    top: 10vh;
+    height: 500px !important;
+    width: 500px !important;
+  }
   h1 {
     font-size: 6vw;
   }
@@ -80,5 +94,13 @@ p {
     font-size: 2.8vw;
     margin-bottom: 1vw;
     list-style-type: circle; /* Change to the desired bullet style: circle, square, disc, etc. */
+  }
+}
+@media screen and (max-width: 600px) {
+  /* Welcome Animation */
+  #contact-us-submit-animation {
+    top: 25vh;
+    height: 300px !important;
+    width: 300px !important;
   }
 }
